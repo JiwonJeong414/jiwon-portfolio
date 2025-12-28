@@ -1,30 +1,40 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 export function Moon() {
   const groupRef = useRef<THREE.Group>(null!);
-  const { nodes, materials } = useGLTF("../models/planet.glb");
+  const { scene } = useGLTF("../models/planet_one.glb");
 
-  useFrame((state) => {
+  // Override all materials in the model to be gray
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child instanceof THREE.Mesh) {
+        child.material = new THREE.MeshStandardMaterial({
+          color: "#8888aa", // Purple-gray
+          roughness: 0.7,
+          metalness: 0.2,
+          flatShading: false,
+          emissive: "#333344", // Subtle glow
+          emissiveIntensity: 0.3,
+        });
+      }
+    });
+  }, [scene]);
+
+  useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
-    groupRef.current.rotation.y = Math.sin(time * 0.1) * 0.1;
+    groupRef.current.rotation.y += delta * 0.05;
+    groupRef.current.position.y = -60 + Math.sin(time * 0.3) * 0.3;
   });
 
-  // Pick your planet! Change the number (1-10) to try different ones
-  const planetMesh = nodes.Toy_Planet_4_Toy_Planets_0 as THREE.Mesh;
-
   return (
-    <group ref={groupRef} position={[0, -60, -50]}>
-      <mesh
-        geometry={planetMesh.geometry}
-        material={materials.Toy_Planets}
-        scale={0.5}
-      />
+    <group ref={groupRef} position={[0, -60, -50]} rotation={[0.3, 2.5, 0.5]}>
+      <primitive object={scene} scale={50} />
     </group>
   );
 }
 
-useGLTF.preload("../models/planet.glb");
+useGLTF.preload("../models/planet_one.glb");
