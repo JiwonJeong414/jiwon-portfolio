@@ -49,8 +49,16 @@ export function StarField({ count = 150 }: { count?: number }) {
   const starGeometry = useMemo(() => createStarGeometry(), []);
   const [starsData] = useState(() => generateStarData(count));
 
-  useFrame((_, delta) => {
-    groupRef.current.rotation.y += delta * 0.003;
+  useFrame((state) => {
+    const time = state.clock.elapsedTime;
+
+    // Horizontal sway
+    const maxYAngle = 10 * (Math.PI / 180);
+    groupRef.current.rotation.y = Math.sin(time * 0.3) * maxYAngle;
+
+    // Subtle vertical tilt
+    const maxXAngle = 5 * (Math.PI / 180);
+    groupRef.current.rotation.x = Math.sin(time * 0.2) * maxXAngle;
   });
 
   return (
