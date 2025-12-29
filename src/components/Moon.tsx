@@ -35,11 +35,11 @@ export function Moon() {
     const maxXAngle = 5 * (Math.PI / 180);
     groupRef.current.rotation.x = 0.3 + Math.sin(time * 0.15) * maxXAngle;
 
-    groupRef.current.position.y = -60 + Math.sin(time * 0.3) * 1.5;
+    groupRef.current.position.y = -65 + Math.sin(time * 0.3) * 1.5;
   });
 
   return (
-    <group ref={groupRef} position={[0, -60, -50]} rotation={[0.3, 2.5, 0.5]}>
+    <group ref={groupRef} position={[0, -65, -50]} rotation={[0.3, 2.5, 0.5]}>
       {/* Planet */}
       <primitive object={scene} scale={50} />
 
