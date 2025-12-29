@@ -30,6 +30,48 @@ body {
   font-family: "Berkshire Swash", cursive;
 }
 
+/* Hanging star animations - gentler swing */
+.hanging-star {
+  transform-origin: top center;
+  animation: swing 5s ease-in-out infinite;
+}
+
+.hanging-star-slow {
+  transform-origin: top center;
+  animation: swing 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.star-string {
+  margin: 0 auto;
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Star glow pulse */
+.hanging-star span,
+.hanging-star-slow span {
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  to {
+    filter: drop-shadow(0 0 20px currentColor)
+      drop-shadow(0 0 35px currentColor);
+  }
+}
+
 .delay-100 {
   animation-delay: 0.1s;
 }
