@@ -1,18 +1,20 @@
+// components/Character.tsx
 "use client";
 import { useGLTF } from "@react-three/drei";
 import { useMemo } from "react";
 import * as THREE from "three";
 
-export function Rose() {
-  const { scene } = useGLTF("../models/rose.glb");
+export function Character() {
+  const { scene } = useGLTF("../models/prince.glb");
 
-  // CHANGE THESE VALUES TO POSITION THE ROSE
-  const latitude = 70;
-  const longitude = -60;
-  const heightOffset = 3; // Lift rose above surface
+  // CHANGE THESE VALUES TO POSITION THE CHARACTER
+  const latitude = 90;
+  const longitude = 170;
+  const heightOffset = 15;
+  const faceRotation = 30; // Which way to face: 0=forward, 90=right, 180=backward, 270=left
 
   const { position, rotation } = useMemo(() => {
-    const radius = 50 + heightOffset; // Add offset to radius
+    const radius = 50 + heightOffset;
 
     // Planet's initial rotation
     const planetRotation = new THREE.Euler(0.3, 2.5, 0.5);
@@ -24,6 +26,7 @@ export function Rose() {
     // Convert degrees to radians
     const latRad = (latitude * Math.PI) / 180;
     const lonRad = (longitude * Math.PI) / 180;
+    const faceRad = (faceRotation * Math.PI) / 180;
 
     // Spherical to Cartesian
     const targetPos = new THREE.Vector3(
@@ -35,15 +38,23 @@ export function Rose() {
     // Apply inverse rotation
     targetPos.applyQuaternion(inverseQuaternion);
 
-    // Calculate rotation to point outward from surface
+    // Calculate rotation to stand upright on planet surface
     const up = new THREE.Vector3(0, 1, 0);
     const normal = targetPos.clone().normalize();
-    const rotationQuaternion = new THREE.Quaternion().setFromUnitVectors(
+    const surfaceQuaternion = new THREE.Quaternion().setFromUnitVectors(
       up,
       normal
     );
+
+    // Add face rotation (spin around the surface normal)
+    const faceQuaternion = new THREE.Quaternion().setFromAxisAngle(
+      normal,
+      faceRad
+    );
+    surfaceQuaternion.premultiply(faceQuaternion);
+
     const finalRotation = new THREE.Euler().setFromQuaternion(
-      rotationQuaternion
+      surfaceQuaternion
     );
 
     return {
@@ -58,16 +69,16 @@ export function Rose() {
         number
       ],
     };
-  }, [latitude, longitude, heightOffset]);
+  }, [latitude, longitude, heightOffset, faceRotation]);
 
   return (
     <primitive
       object={scene}
-      scale={0.07}
+      scale={0.08}
       position={position}
       rotation={rotation}
     />
   );
 }
 
-useGLTF.preload("../models/rose.glb");
+useGLTF.preload("../models/prince.glb");

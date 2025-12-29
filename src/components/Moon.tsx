@@ -1,9 +1,11 @@
+// components/Moon.tsx
 "use client";
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { Rose } from "./Rose";
+import { Character } from "./Character";
 
 export function Moon() {
   const groupRef = useRef<THREE.Group>(null!);
@@ -27,17 +29,12 @@ export function Moon() {
   useFrame((state) => {
     const time = state.clock.elapsedTime;
 
-    // Gentle sway left/right (±10 degrees)
     const maxYAngle = 10 * (Math.PI / 180);
     groupRef.current.rotation.y = 2.5 + Math.sin(time * 0.2) * maxYAngle;
-    //                           ↑ base rotation (keeps the "good side" facing front)
 
-    // Subtle tilt forward/back (±5 degrees)
     const maxXAngle = 5 * (Math.PI / 180);
     groupRef.current.rotation.x = 0.3 + Math.sin(time * 0.15) * maxXAngle;
-    //                           ↑ base tilt
 
-    // Floating up/down motion
     groupRef.current.position.y = -60 + Math.sin(time * 0.3) * 1.5;
   });
 
@@ -48,6 +45,9 @@ export function Moon() {
 
       {/* Rose on top */}
       <Rose />
+
+      {/* Character on planet */}
+      <Character />
     </group>
   );
 }

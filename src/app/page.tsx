@@ -5,14 +5,6 @@ export default function Home() {
     <>
       {/* 3D Background Layer */}
       <Scene />
-
-      {/* Content Layer */}
-      <main className="relative flex min-h-screen flex-col items-center justify-center text-white">
-        <h1 className="text-6xl font-bold tracking-tighter">
-          The Starry Night
-        </h1>
-        <p className="mt-4 text-slate-400">The Little Prince</p>
-      </main>
     </>
   );
 }
