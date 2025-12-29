@@ -6,6 +6,7 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { Rose } from "./Rose";
 import { Character } from "./Character";
+import { Fox } from "./Fox";
 
 export function Moon() {
   const groupRef = useRef<THREE.Group>(null!);
@@ -43,11 +44,14 @@ export function Moon() {
       {/* Planet */}
       <primitive object={scene} scale={50} />
 
-      {/* Rose on top */}
+      {/* Rose */}
       <Rose />
 
-      {/* Character on planet */}
+      {/* Character */}
       <Character />
+
+      {/* Fox */}
+      <Fox />
     </group>
   );
 }
