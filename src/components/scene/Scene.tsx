@@ -1,17 +1,37 @@
 "use client";
 
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Suspense, useEffect } from "react";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { useProgress } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 import { StarField } from "./Stars";
 import { Moon } from "../models";
+import { useLoading } from "@/context/LoadingContext";
 import {
   CAMERA_CONFIG,
   LIGHT_CONFIG,
   BLOOM_CONFIG,
   SCENE_COLORS,
 } from "../../constants";
+
+function LoadingTracker() {
+  const { progress } = useProgress();
+  const { setIsLoaded } = useLoading();
+
+  useEffect(() => {
+    if (progress === 100) {
+      // Small delay for shader compilation
+      const timer = setTimeout(() => {
+        setIsLoaded(true);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [progress, setIsLoaded]);
+
+  return null;
+}
 
 export function Scene() {
   return (
@@ -24,9 +44,12 @@ export function Scene() {
         gl={{
           antialias: true,
           toneMapping: THREE.NoToneMapping,
+          powerPreference: "high-performance",
         }}
       >
         <color attach="background" args={[SCENE_COLORS.background]} />
+
+        <LoadingTracker />
 
         {/* Lighting */}
         <ambientLight intensity={LIGHT_CONFIG.ambient.intensity} />
@@ -40,15 +63,12 @@ export function Scene() {
           intensity={LIGHT_CONFIG.directional.intensity}
         />
 
-        {/* Stars */}
         <StarField />
 
-        {/* Planet with models */}
         <Suspense fallback={null}>
           <Moon />
         </Suspense>
 
-        {/* Post-processing effects */}
         <EffectComposer>
           <Bloom
             intensity={BLOOM_CONFIG.intensity}

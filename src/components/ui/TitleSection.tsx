@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 import { titleVariants, scaleInVariants, fadeInVariants } from "@/constants";
+import { useLoading } from "@/context/LoadingContext";
 
 export function TitleSection() {
+  const { isLoaded } = useLoading();
+
+  // Don't render until 3D scene is loaded
+  if (!isLoaded) return null;
+
   return (
     <>
       {/* Decorative stars above title */}
@@ -33,7 +39,7 @@ export function TitleSection() {
           variants={titleVariants}
           initial="hidden"
           animate="visible"
-          custom={1.2}
+          custom={0.2} // Reduced delay since we already waited
         >
           Jiwon
         </motion.span>
@@ -46,7 +52,7 @@ export function TitleSection() {
           variants={titleVariants}
           initial="hidden"
           animate="visible"
-          custom={1.5}
+          custom={0.5}
         >
           Jeong
         </motion.span>
@@ -58,7 +64,7 @@ export function TitleSection() {
         variants={fadeInVariants}
         initial="hidden"
         animate="visible"
-        custom={2.0}
+        custom={1.0}
       >
         Software Engineer
       </motion.p>
