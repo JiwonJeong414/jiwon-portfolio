@@ -1,4 +1,5 @@
 "use client";
+
 import { useRef, useMemo, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
@@ -6,16 +7,15 @@ import {
   createStarGeometry,
   generateStarData,
   STAR_COLORS,
-  type StarData,
-} from "../utils/star-utils";
+} from "../../utils/star-utils";
+import { STARFIELD_ANIMATION } from "../../constants";
+import type { StarProps, StarFieldProps } from "../../types";
 
-function Star({
-  data,
-  geometry,
-}: {
-  data: StarData;
-  geometry: THREE.ExtrudeGeometry;
-}) {
+// ============================================
+// Individual Star Component
+// ============================================
+
+function Star({ data, geometry }: StarProps) {
   const meshRef = useRef<THREE.Mesh>(null!);
   const color = STAR_COLORS[data.colorIndex];
 
@@ -44,7 +44,13 @@ function Star({
   );
 }
 
-export function StarField({ count = 150 }: { count?: number }) {
+// ============================================
+// Star Field Component
+// ============================================
+
+const DEFAULT_STAR_COUNT = 150;
+
+export function StarField({ count = DEFAULT_STAR_COUNT }: StarFieldProps) {
   const groupRef = useRef<THREE.Group>(null!);
   const starGeometry = useMemo(() => createStarGeometry(), []);
   const [starsData] = useState(() => generateStarData(count));
@@ -53,12 +59,14 @@ export function StarField({ count = 150 }: { count?: number }) {
     const time = state.clock.elapsedTime;
 
     // Horizontal sway
-    const maxYAngle = 10 * (Math.PI / 180);
-    groupRef.current.rotation.y = Math.sin(time * 0.3) * maxYAngle;
+    groupRef.current.rotation.y =
+      Math.sin(time * STARFIELD_ANIMATION.ySpeed) *
+      STARFIELD_ANIMATION.maxYAngle;
 
     // Subtle vertical tilt
-    const maxXAngle = 5 * (Math.PI / 180);
-    groupRef.current.rotation.x = Math.sin(time * 0.2) * maxXAngle;
+    groupRef.current.rotation.x =
+      Math.sin(time * STARFIELD_ANIMATION.xSpeed) *
+      STARFIELD_ANIMATION.maxXAngle;
   });
 
   return (

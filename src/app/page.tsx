@@ -1,5 +1,5 @@
 // app/page.tsx
-import { Scene } from "@/components/Scene";
+import { Scene } from "@/components";
 
 export default function Home() {
   return (

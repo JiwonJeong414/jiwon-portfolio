@@ -1,31 +1,29 @@
 import * as THREE from "three";
-
-export interface PlanetPositionProps {
-  latitude: number;
-  longitude: number;
-  heightOffset?: number;
-  faceRotation?: number;
-  planetRadius?: number;
-}
+import type { PlanetPositionProps, SurfaceTransform } from "../types";
+import { PLANET_RADIUS, PLANET_ROTATION } from "../constants";
 
 export function calculateSurfaceTransform({
   latitude,
   longitude,
   heightOffset = 0,
   faceRotation = 0,
-  planetRadius = 50,
-}: PlanetPositionProps) {
+  planetRadius = PLANET_RADIUS,
+}: PlanetPositionProps): SurfaceTransform {
   const radius = planetRadius + heightOffset;
 
-  // Planet's initial rotation (Keep this consistent across all models)
-  const planetRotation = new THREE.Euler(0.3, 2.5, 0.5);
+  // Planet's initial rotation (consistent across all models)
+  const planetRotation = new THREE.Euler(
+    PLANET_ROTATION.x,
+    PLANET_ROTATION.y,
+    PLANET_ROTATION.z
+  );
   const planetQuaternion = new THREE.Quaternion().setFromEuler(planetRotation);
   const inverseQuaternion = planetQuaternion.clone().invert();
 
   // Convert degrees to radians
-  const latRad = (latitude * Math.PI) / 180;
-  const lonRad = (longitude * Math.PI) / 180;
-  const faceRad = (faceRotation * Math.PI) / 180;
+  const latRad = THREE.MathUtils.degToRad(latitude);
+  const lonRad = THREE.MathUtils.degToRad(longitude);
+  const faceRad = THREE.MathUtils.degToRad(faceRotation);
 
   // Spherical to Cartesian
   const targetPos = new THREE.Vector3(
@@ -55,15 +53,7 @@ export function calculateSurfaceTransform({
   const finalRotation = new THREE.Euler().setFromQuaternion(surfaceQuaternion);
 
   return {
-    position: [targetPos.x, targetPos.y, targetPos.z] as [
-      number,
-      number,
-      number
-    ],
-    rotation: [finalRotation.x, finalRotation.y, finalRotation.z] as [
-      number,
-      number,
-      number
-    ],
+    position: [targetPos.x, targetPos.y, targetPos.z],
+    rotation: [finalRotation.x, finalRotation.y, finalRotation.z],
   };
 }
