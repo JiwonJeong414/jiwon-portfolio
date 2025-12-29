@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { HangingStarConfig, starVariants } from "@/constants";
+import { HangingStarConfig } from "@/constants";
 
 interface HangingStarProps {
   config: HangingStarConfig;
+  index: number;
 }
 
-export function HangingStar({ config }: HangingStarProps) {
+export function HangingStar({ config, index }: HangingStarProps) {
   const {
     position,
     height,
@@ -16,23 +16,22 @@ export function HangingStar({ config }: HangingStarProps) {
     size,
     icon,
     slow,
-    delay,
   } = config;
 
   return (
-    <motion.div
+    <div
       className={`${
         slow ? "hanging-star-slow" : "hanging-star"
-      } absolute top-0 ${position}`}
-      variants={starVariants}
-      initial="hidden"
-      animate="visible"
-      custom={delay}
+      } absolute top-0 ${position} animate-drop-in opacity-0`}
+      style={{
+        animationDelay: `${index * 0.1}s`,
+        animationFillMode: "forwards",
+      }}
     >
       <div
         className={`star-string ${height} w-px bg-gradient-to-b from-transparent ${gradientClasses}`}
       />
       <span className={`${textColorClass} ${size} block`}>{icon}</span>
-    </motion.div>
+    </div>
   );
 }

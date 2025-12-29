@@ -79,3 +79,18 @@ body {
 .delay-200 {
   animation-delay: 0.2s;
 }
+
+@keyframes drop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-drop-in {
+  animation: drop-in 1.2s ease-out;
+}
