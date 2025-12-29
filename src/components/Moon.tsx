@@ -24,10 +24,21 @@ export function Moon() {
     });
   }, [scene]);
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     const time = state.clock.elapsedTime;
-    groupRef.current.rotation.y += delta * 0.05;
-    groupRef.current.position.y = -60 + Math.sin(time * 0.3) * 0.3;
+
+    // Gentle sway left/right (±10 degrees)
+    const maxYAngle = 10 * (Math.PI / 180);
+    groupRef.current.rotation.y = 2.5 + Math.sin(time * 0.2) * maxYAngle;
+    //                           ↑ base rotation (keeps the "good side" facing front)
+
+    // Subtle tilt forward/back (±5 degrees)
+    const maxXAngle = 5 * (Math.PI / 180);
+    groupRef.current.rotation.x = 0.3 + Math.sin(time * 0.15) * maxXAngle;
+    //                           ↑ base tilt
+
+    // Floating up/down motion
+    groupRef.current.position.y = -60 + Math.sin(time * 0.3) * 1.5;
   });
 
   return (
