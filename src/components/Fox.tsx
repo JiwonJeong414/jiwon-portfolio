@@ -74,7 +74,7 @@ export function Fox() {
   return (
     <primitive
       object={scene}
-      scale={1.2} // Adjust based on model size
+      scale={1.3} // Adjust based on model size
       position={position}
       rotation={rotation}
     />
