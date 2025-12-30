@@ -26,11 +26,9 @@ export default function Home() {
       {/* Content Section - Second Viewport (placeholder for your content) */}
       <section className="min-h-screen bg-[#0a0a0f] relative z-20">
         <div className="max-w-4xl mx-auto px-6 py-24">
-          {/* Add your portfolio content here */}
+          {/* Add portfolio content here */}
           <div className="text-slate-400 text-center">
-            <p className="text-lg mb-8 opacity-60">
-              Your portfolio content goes here...
-            </p>
+            <p className="text-lg mb-8 opacity-60">Portfolio Content...</p>
           </div>
         </div>
       </section>

@@ -44,8 +44,10 @@ function ScrollAnimations() {
     const targetY = initialY.current - scrollProgress * 15;
     const targetZ = initialZ.current + scrollProgress * 10;
 
+    /* eslint-disable react-hooks/immutability */
     camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetY, 0.1);
     camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.1);
+    /* eslint-enable react-hooks/immutability */
   });
 
   return null;
