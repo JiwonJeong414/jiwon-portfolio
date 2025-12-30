@@ -192,7 +192,7 @@ function StoryCard({ story, index }: StoryCardProps) {
             {/* Quote */}
             <blockquote className="relative border-l-2 border-amber-400/30 pl-6">
               <span className="absolute -top-2 -left-3 text-4xl text-amber-400/20">
-                "
+                &quot;
               </span>
               <p className="font-serif text-base text-amber-200/70 italic">
                 {story.quote}
@@ -349,11 +349,11 @@ export function Portfolio() {
           </div>
 
           <p className="mb-8 font-serif text-xl text-amber-200/70 italic">
-            "And now here is my secret, a very simple secret..."
+            &quot;And now here is my secret, a very simple secret...&quot;
           </p>
 
           <h3 className="title-text mb-4 text-3xl text-amber-200">
-            Let's Create Together
+            Let&apos;s Create Together
           </h3>
 
           <p className="mx-auto mb-8 max-w-md text-slate-400">
