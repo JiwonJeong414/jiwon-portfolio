@@ -26,7 +26,7 @@ export function ScrollIndicator() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+          className="fixed bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
@@ -34,7 +34,7 @@ export function ScrollIndicator() {
         >
           {/* Text */}
           <motion.span
-            className="text-white text-xs tracking-[0.25em] uppercase font-bold"
+            className="text-xs font-bold tracking-[0.25em] text-white uppercase"
             animate={{ opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -42,7 +42,7 @@ export function ScrollIndicator() {
           </motion.span>
 
           {/* Animated arrow container */}
-          <div className="relative w-6 h-10 flex flex-col items-center overflow-hidden">
+          <div className="relative flex h-10 w-6 flex-col items-center overflow-hidden">
             {/* Animated chevrons */}
             <motion.div
               className="flex flex-col items-center gap-1"
@@ -88,7 +88,7 @@ export function ScrollIndicator() {
 
           {/* Subtle line */}
           <motion.div
-            className="w-px h-8 bg-gradient-to-b from-slate-600/50 to-transparent"
+            className="h-8 w-px bg-gradient-to-b from-slate-600/50 to-transparent"
             animate={{ scaleY: [1, 0.6, 1], opacity: [0.5, 0.3, 0.5] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />

@@ -38,16 +38,16 @@ export function TitleSection() {
     >
       {/* Decorative stars above title */}
       <motion.div
-        className="flex gap-4 mb-4"
+        className="mb-4 flex gap-4"
         variants={scaleInVariants}
         initial="hidden"
         animate="visible"
       >
-        <span className="text-yellow-300 text-lg animate-pulse">✦</span>
-        <span className="text-yellow-400 text-2xl animate-pulse delay-100">
+        <span className="animate-pulse text-lg text-yellow-300">✦</span>
+        <span className="animate-pulse text-2xl text-yellow-400 delay-100">
           ★
         </span>
-        <span className="text-yellow-300 text-lg animate-pulse delay-200">
+        <span className="animate-pulse text-lg text-yellow-300 delay-200">
           ✦
         </span>
       </motion.div>
@@ -55,7 +55,7 @@ export function TitleSection() {
       {/* Main Title */}
       <motion.h1 className="title-text text-center">
         <motion.span
-          className="block text-5xl md:text-7xl lg:text-8xl text-amber-300"
+          className="block text-5xl text-amber-300 md:text-7xl lg:text-8xl"
           style={{
             textShadow:
               "0 0 40px rgba(251,191,36,0.6), 0 4px 8px rgba(0,0,0,0.5)",
@@ -68,7 +68,7 @@ export function TitleSection() {
           Jiwon
         </motion.span>
         <motion.span
-          className="block text-6xl md:text-8xl lg:text-9xl text-amber-200 -mt-2"
+          className="-mt-2 block text-6xl text-amber-200 md:text-8xl lg:text-9xl"
           style={{
             textShadow:
               "0 0 50px rgba(251,191,36,0.7), 0 4px 8px rgba(0,0,0,0.5)",
@@ -84,7 +84,7 @@ export function TitleSection() {
 
       {/* Subtitle */}
       <motion.p
-        className="mt-8 text-slate-400 text-xs md:text-sm tracking-[0.4em] uppercase"
+        className="mt-8 text-xs tracking-[0.4em] text-slate-400 uppercase md:text-sm"
         variants={fadeInVariants}
         initial="hidden"
         animate="visible"

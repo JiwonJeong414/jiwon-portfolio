@@ -25,7 +25,7 @@ export function HangingStars() {
 
   return (
     <motion.div
-      className="absolute top-0 left-0 w-full h-96 overflow-visible"
+      className="absolute top-0 left-0 h-96 w-full overflow-visible"
       style={{ opacity, y }}
     >
       {HANGING_STARS.map((star, index) => (

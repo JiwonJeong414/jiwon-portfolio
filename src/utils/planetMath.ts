@@ -15,7 +15,7 @@ export function calculateSurfaceTransform({
   const planetRotation = new THREE.Euler(
     PLANET_ROTATION.x,
     PLANET_ROTATION.y,
-    PLANET_ROTATION.z
+    PLANET_ROTATION.z,
   );
   const planetQuaternion = new THREE.Quaternion().setFromEuler(planetRotation);
   const inverseQuaternion = planetQuaternion.clone().invert();
@@ -29,7 +29,7 @@ export function calculateSurfaceTransform({
   const targetPos = new THREE.Vector3(
     radius * Math.cos(latRad) * Math.sin(lonRad),
     radius * Math.sin(latRad),
-    radius * Math.cos(latRad) * Math.cos(lonRad)
+    radius * Math.cos(latRad) * Math.cos(lonRad),
   );
 
   // Apply inverse rotation so the object moves with the planet
@@ -40,13 +40,13 @@ export function calculateSurfaceTransform({
   const normal = targetPos.clone().normalize();
   const surfaceQuaternion = new THREE.Quaternion().setFromUnitVectors(
     up,
-    normal
+    normal,
   );
 
   // Add face rotation (spinning on its own axis)
   const faceQuaternion = new THREE.Quaternion().setFromAxisAngle(
     normal,
-    faceRad
+    faceRad,
   );
   surfaceQuaternion.premultiply(faceQuaternion);
 

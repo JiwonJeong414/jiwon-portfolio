@@ -16,7 +16,7 @@ export function LoadingScreen() {
         >
           {/* Animated star */}
           <motion.div
-            className="text-yellow-400 text-6xl"
+            className="text-6xl text-yellow-400"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 180, 360],
@@ -33,7 +33,7 @@ export function LoadingScreen() {
 
           {/* Loading text */}
           <motion.p
-            className="mt-6 text-amber-200/60 text-sm tracking-[0.3em] uppercase"
+            className="mt-6 text-sm tracking-[0.3em] text-amber-200/60 uppercase"
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >

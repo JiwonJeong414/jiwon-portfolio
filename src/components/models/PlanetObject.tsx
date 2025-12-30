@@ -38,7 +38,7 @@ export function PlanetObject({
         faceRotation,
         planetRadius,
       }),
-    [latitude, longitude, heightOffset, faceRotation, planetRadius]
+    [latitude, longitude, heightOffset, faceRotation, planetRadius],
   );
 
   return (
