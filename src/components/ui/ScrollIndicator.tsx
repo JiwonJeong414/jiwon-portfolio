@@ -34,7 +34,7 @@ export function ScrollIndicator() {
         >
           {/* Text */}
           <motion.span
-            className="text-slate-500 text-xs tracking-[0.25em] uppercase font-light"
+            className="text-white text-xs tracking-[0.25em] uppercase font-bold"
             animate={{ opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -58,7 +58,7 @@ export function ScrollIndicator() {
                 height="8"
                 viewBox="0 0 16 8"
                 fill="none"
-                className="text-slate-500"
+                className="text-white/30"
               >
                 <path
                   d="M1 1L8 7L15 1"
@@ -73,7 +73,7 @@ export function ScrollIndicator() {
                 height="8"
                 viewBox="0 0 16 8"
                 fill="none"
-                className="text-slate-600 opacity-60"
+                className="text-white/30 opacity-60"
               >
                 <path
                   d="M1 1L8 7L15 1"
