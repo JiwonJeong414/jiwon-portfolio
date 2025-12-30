@@ -53,7 +53,7 @@ export interface StarFieldProps {
   count?: number;
 }
 
-const DEFAULT_STAR_COUNT = 150;
+const DEFAULT_STAR_COUNT = 200;
 
 /**
  * Renders a field of animated stars with gentle swaying motion.

@@ -94,3 +94,8 @@ body {
 .animate-drop-in {
   animation: drop-in 1.2s ease-out;
 }
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

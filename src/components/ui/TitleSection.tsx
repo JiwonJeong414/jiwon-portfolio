@@ -1,17 +1,41 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useTransform, useMotionValue } from "framer-motion";
+import { useEffect } from "react";
 import { titleVariants, scaleInVariants, fadeInVariants } from "@/constants";
-import { useLoading } from "@/context/LoadingContext";
+import { useLoading, useScroll } from "@/context";
 
 export function TitleSection() {
   const { isLoaded } = useLoading();
+  const { scrollProgress } = useScroll();
+
+  // Create motion value from scroll progress
+  const scrollMotion = useMotionValue(0);
+
+  useEffect(() => {
+    scrollMotion.set(scrollProgress);
+  }, [scrollProgress, scrollMotion]);
+
+  // Transform values based on scroll - must be called before any early return
+  const opacity = useTransform(scrollMotion, [0, 0.4], [1, 0]);
+  const y = useTransform(scrollMotion, [0, 0.5], [0, -100]);
+  const scale = useTransform(scrollMotion, [0, 0.5], [1, 0.8]);
+  const blur = useTransform(scrollMotion, [0, 0.3], [0, 10]);
+  const filterBlur = useTransform(blur, (v) => `blur(${v}px)`);
 
   // Don't render until 3D scene is loaded
   if (!isLoaded) return null;
 
   return (
-    <>
+    <motion.div
+      className="flex flex-col items-center"
+      style={{
+        opacity,
+        y,
+        scale,
+        filter: filterBlur,
+      }}
+    >
       {/* Decorative stars above title */}
       <motion.div
         className="flex gap-4 mb-4"
@@ -39,7 +63,7 @@ export function TitleSection() {
           variants={titleVariants}
           initial="hidden"
           animate="visible"
-          custom={0.2} // Reduced delay since we already waited
+          custom={0.2}
         >
           Jiwon
         </motion.span>
@@ -68,6 +92,6 @@ export function TitleSection() {
       >
         Software Engineer
       </motion.p>
-    </>
+    </motion.div>
   );
 }

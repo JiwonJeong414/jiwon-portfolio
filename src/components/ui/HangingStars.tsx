@@ -1,19 +1,36 @@
 "use client";
 
+import { motion, useTransform, useMotionValue } from "framer-motion";
+import { useEffect } from "react";
 import { HangingStar } from "./HangingStar";
 import { HANGING_STARS } from "@/constants";
-import { useLoading } from "@/context/LoadingContext";
+import { useLoading, useScroll } from "@/context";
 
 export function HangingStars() {
   const { isLoaded } = useLoading();
+  const { scrollProgress } = useScroll();
+
+  // Create motion value from scroll progress
+  const scrollMotion = useMotionValue(0);
+
+  useEffect(() => {
+    scrollMotion.set(scrollProgress);
+  }, [scrollProgress, scrollMotion]);
+
+  // Transform values - stars pull up and fade as user scrolls
+  const opacity = useTransform(scrollMotion, [0, 0.3], [1, 0]);
+  const y = useTransform(scrollMotion, [0, 0.4], [0, -200]);
 
   if (!isLoaded) return null;
 
   return (
-    <div className="absolute top-0 left-0 w-full h-96 overflow-visible">
+    <motion.div
+      className="absolute top-0 left-0 w-full h-96 overflow-visible"
+      style={{ opacity, y }}
+    >
       {HANGING_STARS.map((star, index) => (
         <HangingStar key={index} config={star} index={index} />
       ))}
-    </div>
+    </motion.div>
   );
 }

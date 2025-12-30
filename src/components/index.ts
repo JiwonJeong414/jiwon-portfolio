@@ -5,4 +5,10 @@ export { Scene, StarField } from "./scene";
 export { Moon, Character, Fox, Rose, PlanetObject } from "./models";
 
 // UI components
-export { HangingStars, HangingStar, TitleSection } from "./ui";
+export {
+  HangingStars,
+  HangingStar,
+  TitleSection,
+  ScrollIndicator,
+  LoadingScreen,
+} from "./ui";
