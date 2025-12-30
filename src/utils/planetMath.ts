@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import type { PlanetPositionProps, SurfaceTransform } from "../types";
+import type { PlanetPositionProps } from "../components/models/PlanetObject";
 import { PLANET_RADIUS, PLANET_ROTATION } from "../constants";
 
 export function calculateSurfaceTransform({
@@ -8,7 +8,7 @@ export function calculateSurfaceTransform({
   heightOffset = 0,
   faceRotation = 0,
   planetRadius = PLANET_RADIUS,
-}: PlanetPositionProps): SurfaceTransform {
+}: PlanetPositionProps) {
   const radius = planetRadius + heightOffset;
 
   // Planet's initial rotation (consistent across all models)

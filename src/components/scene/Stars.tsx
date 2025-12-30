@@ -7,14 +7,19 @@ import {
   createStarGeometry,
   generateStarData,
   STAR_COLORS,
-} from "../../utils/star-utils";
+} from "../../utils/starMath";
 import { STARFIELD_ANIMATION } from "../../constants";
-import type { StarProps, StarFieldProps } from "../../types";
+import { StarData } from "../../types/index";
 
-// ============================================
-// Individual Star Component
-// ============================================
+export interface StarProps {
+  data: StarData;
+  geometry: THREE.ExtrudeGeometry;
+}
 
+/**
+ * Individual star mesh with flickering emissive animation.
+ * Uses shared geometry for performance.
+ */
 function Star({ data, geometry }: StarProps) {
   const meshRef = useRef<THREE.Mesh>(null!);
   const color = STAR_COLORS[data.colorIndex];
@@ -44,12 +49,16 @@ function Star({ data, geometry }: StarProps) {
   );
 }
 
-// ============================================
-// Star Field Component
-// ============================================
+export interface StarFieldProps {
+  count?: number;
+}
 
 const DEFAULT_STAR_COUNT = 150;
 
+/**
+ * Renders a field of animated stars with gentle swaying motion.
+ * @param count - Number of stars to render (default: 150)
+ */
 export function StarField({ count = DEFAULT_STAR_COUNT }: StarFieldProps) {
   const groupRef = useRef<THREE.Group>(null!);
   const starGeometry = useMemo(() => createStarGeometry(), []);

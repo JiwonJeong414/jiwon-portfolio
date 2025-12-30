@@ -1,15 +1,9 @@
-// ============================================
 // Planet Geometry
-// ============================================
-
 export const PLANET_RADIUS = 50;
 
 export const PLANET_SCALE = 50;
 
-// ============================================
 // Planet Initial Transform
-// ============================================
-
 export const PLANET_POSITION = {
   x: 0,
   y: -65,
@@ -22,10 +16,7 @@ export const PLANET_ROTATION = {
   z: 0.5,
 } as const;
 
-// ============================================
 // Planet Animation
-// ============================================
-
 export const PLANET_ANIMATION = {
   maxYAngle: 10 * (Math.PI / 180),
   maxXAngle: 5 * (Math.PI / 180),
@@ -35,10 +26,7 @@ export const PLANET_ANIMATION = {
   bobAmount: 1.5,
 } as const;
 
-// ============================================
 // Planet Material
-// ============================================
-
 export const PLANET_MATERIAL = {
   color: "#8888aa",
   roughness: 0.7,
@@ -47,10 +35,7 @@ export const PLANET_MATERIAL = {
   emissiveIntensity: 0.3,
 } as const;
 
-// ============================================
 // Model Paths
-// ============================================
-
 export const MODEL_PATHS = {
   planet: "../models/planet_one.glb",
   prince: "../models/prince.glb",
@@ -58,10 +43,7 @@ export const MODEL_PATHS = {
   rose: "../models/rose.glb",
 } as const;
 
-// ============================================
 // Model Configurations
-// ============================================
-
 export const CHARACTER_CONFIG = {
   scale: 0.08,
   latitude: 90,

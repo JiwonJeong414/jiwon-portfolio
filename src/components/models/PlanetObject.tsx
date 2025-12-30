@@ -3,7 +3,18 @@
 import { useGLTF } from "@react-three/drei";
 import { useMemo } from "react";
 import { calculateSurfaceTransform } from "../../utils/planetMath";
-import type { PlanetObjectProps } from "../../types";
+
+export interface PlanetPositionProps {
+  latitude: number;
+  longitude: number;
+  heightOffset?: number;
+  faceRotation?: number;
+  planetRadius?: number;
+}
+export interface PlanetObjectProps extends PlanetPositionProps {
+  modelPath: string;
+  scale: number;
+}
 
 export function PlanetObject({
   modelPath,
