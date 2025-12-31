@@ -33,7 +33,7 @@ export function UpliftProject() {
 
       {/* Main creative canvas - relative container for absolute positioning */}
       <div className="relative mx-auto min-h-[1200px] max-w-6xl md:min-h-[850px]">
-        {/* ============ HERO BANNER - Large, offset to right ============ */}
+        {/* ============ HERO BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -52,7 +52,7 @@ export function UpliftProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ LOGO - Floating top left, overlapping ============ */}
+        {/* ============ LOGO ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -98,7 +98,7 @@ export function UpliftProject() {
           </div>
         </motion.div>
 
-        {/* ============ STAT CARDS - Scattered around ============ */}
+        {/* ============ STAT CARDS ============ */}
         <StatCard
           number="5+"
           label="Campus Gyms"
@@ -116,7 +116,7 @@ export function UpliftProject() {
           delay={0.5}
         />
 
-        {/* ============ SCREENSHOTS - Fanned out arrangement ============ */}
+        {/* ============ SCREENSHOTS ============ */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: -15 }}
           whileInView={{ opacity: 1, y: 0, rotate: -12 }}

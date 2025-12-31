@@ -41,10 +41,15 @@ export function ProjectTitle({
         style={{ background: `linear-gradient(90deg, transparent, ${accent})` }}
       />
       <motion.span
+        key="star-left" // stable key
         className="text-lg"
         style={{ color: accent }}
         animate={{ rotate: [0, 10, -10, 0] }}
-        transition={{ duration: 4, repeat: Infinity }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          repeatType: "loop", // explicit loop type
+        }}
       >
         ✦
       </motion.span>
@@ -103,7 +108,6 @@ export function Screenshot({
       className="overflow-hidden rounded-lg border border-white/10 bg-slate-900/60"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
       transition={{ delay }}
       whileHover={{ scale: 1.05 }}
       // We keep your custom width and boxShadow logic exactly as it was
@@ -128,7 +132,7 @@ export function ProjectWrapper({
   className?: string;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: false, margin: "-50px" });
 
   return (
     <motion.div

@@ -43,9 +43,9 @@ export function IntroductionChapter() {
         </div>
       </motion.div>
 
-      {/* Main content - organic layout */}
+      {/* Main content */}
       <div className="relative min-h-[500px] md:min-h-[300px]">
-        {/* Image - Left side with tilt */}
+        {/* Image */}
         <motion.div
           className="absolute top-0 left-0 z-10 w-[70%] md:w-[45%]"
           initial={{ opacity: 0, x: -40, rotate: -3 }}
@@ -98,7 +98,7 @@ export function IntroductionChapter() {
           </div>
         </motion.div>
 
-        {/* Text card - Right side, floating */}
+        {/* Text card */}
         <motion.div
           className="absolute top-[20px] right-0 z-20 w-[75%] md:top-[40px] md:right-[5%] md:w-[55%]"
           initial={{ opacity: 0, x: 40, rotate: 1 }}

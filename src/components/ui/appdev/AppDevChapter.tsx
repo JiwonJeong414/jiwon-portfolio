@@ -14,7 +14,6 @@ export function AppDevChapter() {
           className="mb-12 text-center text-sm tracking-[0.2em] text-slate-400 uppercase"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
         >
           Projects I&apos;ve Contributed To
         </motion.p>

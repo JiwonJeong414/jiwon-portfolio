@@ -31,7 +31,7 @@ export function MillenniumProject() {
 
       {/* Main creative canvas */}
       <div className="relative mx-auto min-h-[950px] max-w-6xl md:min-h-[880px]">
-        {/* ============ HERO BANNER - Top, spans most width ============ */}
+        {/* ============ HERO BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export function MillenniumProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ LOGO - Floating left side ============ */}
+        {/* ============ LOGO ============ */}
         <motion.div
           initial={{ opacity: 0, x: -20, rotate: -10 }}
           whileInView={{ opacity: 1, x: 0, rotate: 0 }}
@@ -69,7 +69,7 @@ export function MillenniumProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ TEAM PHOTO - Large, offset right ============ */}
+        {/* ============ TEAM PHOTO ============ */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +89,7 @@ export function MillenniumProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ STAT CARDS - Scattered ============ */}
+        {/* ============ STAT CARDS ============ */}
         <StatCard
           number="500+"
           label="Predictions"
@@ -98,7 +98,7 @@ export function MillenniumProject() {
           delay={0.4}
         />
 
-        {/* ============ SCREENSHOTS - Diagonal cascade down the left ============ */}
+        {/* ============ SCREENSHOTS ============ */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: -8 }}
           whileInView={{ opacity: 1, y: 0, rotate: -5 }}
@@ -141,7 +141,7 @@ export function MillenniumProject() {
           />
         </motion.div>
 
-        {/* ============ TEXT CARD - Bottom right, floating ============ */}
+        {/* ============ TEXT CARD ============ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

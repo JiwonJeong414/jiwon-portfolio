@@ -28,7 +28,7 @@ export function TechTiveProject() {
 
       {/* Main creative canvas */}
       <div className="relative mx-auto min-h-[1100px] max-w-6xl md:min-h-[700px]">
-        {/* ============ HACKATHON STAT CARD - Top Right ============ */}
+        {/* ============ HACKATHON STAT CARD ============ */}
         <StatCard
           number="Hackathon"
           label="Winner"
@@ -37,7 +37,7 @@ export function TechTiveProject() {
           delay={0.6}
         />
 
-        {/* ============ HERO BANNER - Large, centered at top ============ */}
+        {/* ============ HERO BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -57,7 +57,7 @@ export function TechTiveProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ LOGO - Floating top left ============ */}
+        {/* ============ LOGO ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -76,7 +76,7 @@ export function TechTiveProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ WIDE BANNER - Below hero ============ */}
+        {/* ============ WIDE BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ export function TechTiveProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ STANDARD SCREENSHOTS - On the wide banner, fanned ============ */}
+        {/* ============ STANDARD SCREENSHOTS ============ */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: 8 }}
           whileInView={{ opacity: 1, y: 0, rotate: 4 }}
@@ -123,7 +123,7 @@ export function TechTiveProject() {
           />
         </motion.div>
 
-        {/* ============ LONG SCREENSHOTS - Stacked on right side ============ */}
+        {/* ============ LONG SCREENSHOTS ============ */}
         <motion.div
           initial={{ opacity: 0, x: 30, rotate: -3 }}
           whileInView={{ opacity: 1, x: 0, rotate: -5 }}
@@ -152,7 +152,7 @@ export function TechTiveProject() {
           />
         </motion.div>
 
-        {/* ============ TEXT CARD - Bottom left, floating ============ */}
+        {/* ============ TEXT CARD ============ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

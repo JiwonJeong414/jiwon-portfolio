@@ -28,7 +28,7 @@ export function ChapterHeader() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* ============ TITLE SECTION - Centered at top ============ */}
+      {/* ============ TITLE SECTION ============ */}
       <div className="mb-8 text-center">
         <motion.p
           className="mb-2 text-sm tracking-[0.3em] text-amber-400/80 uppercase"
@@ -70,9 +70,9 @@ export function ChapterHeader() {
         </motion.p>
       </div>
 
-      {/* ============ MAIN CONTENT - Organic layout ============ */}
+      {/* ============ MAIN CONTENT ============ */}
       <div className="relative mx-auto min-h-[600px] max-w-6xl md:min-h-[500px]">
-        {/* ============ LOGO - Floating left ============ */}
+        {/* ============ LOGO ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -92,7 +92,7 @@ export function ChapterHeader() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ BANNER - Offset to right of logo ============ */}
+        {/* ============ BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -112,7 +112,7 @@ export function ChapterHeader() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ TEXT CARD - Bottom left, floating ============ */}
+        {/* ============ TEXT CARD ============ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ export function ChapterHeader() {
           </div>
         </motion.div>
 
-        {/* ============ TEAM PHOTO - Right side, large ============ */}
+        {/* ============ TEAM PHOTO ============ */}
         <motion.div
           initial={{ opacity: 0, x: 30, rotate: 2 }}
           whileInView={{ opacity: 1, x: 0, rotate: 1 }}
@@ -152,7 +152,6 @@ export function ChapterHeader() {
         </motion.div>
 
         {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Golden glow */}
         <div
           className="pointer-events-none absolute top-[50px] right-[20%] z-0 h-[250px] w-[250px] rounded-full opacity-10 blur-[100px]"
           style={{
@@ -160,7 +159,6 @@ export function ChapterHeader() {
           }}
         />
 
-        {/* Floating particles */}
         <motion.div
           animate={{
             y: [0, -12, 0],

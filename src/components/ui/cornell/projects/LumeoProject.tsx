@@ -34,7 +34,7 @@ export function LumeoProject() {
 
       {/* Main creative canvas */}
       <div className="relative mx-auto min-h-[1200px] max-w-6xl md:min-h-[1000px]">
-        {/* ============ HERO - Logo on city background ============ */}
+        {/* ============ HERO ============ */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export function LumeoProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ LOGO - Floating top left ============ */}
+        {/* ============ LOGO ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -82,7 +82,7 @@ export function LumeoProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ TEXT CARD - Below hero, offset left ============ */}
+        {/* ============ TEXT CARD ============ */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -109,7 +109,7 @@ export function LumeoProject() {
           </div>
         </motion.div>
 
-        {/* ============ APP SCREENSHOTS - Fanned on right ============ */}
+        {/* ============ APP SCREENSHOTS ============ */}
         <motion.div
           initial={{ opacity: 0, x: 20, rotate: -8 }}
           whileInView={{ opacity: 1, x: 0, rotate: -5 }}
@@ -169,7 +169,7 @@ export function LumeoProject() {
           delay={0.5}
         />
 
-        {/* ============ SHAPEFILES - Overlapping maps ============ */}
+        {/* ============ SHAPEFILES ============ */}
         <motion.div
           initial={{ opacity: 0, rotate: -5 }}
           whileInView={{ opacity: 1, rotate: -3 }}
@@ -212,7 +212,7 @@ export function LumeoProject() {
           </p>
         </motion.div>
 
-        {/* ============ PAPER/RESEARCH - Next to shapefiles on right ============ */}
+        {/* ============ PAPER/RESEARCH ============ */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -234,7 +234,7 @@ export function LumeoProject() {
           </p>
         </motion.div>
 
-        {/* ============ WATCHES - Center, no boxes ============ */}
+        {/* ============ WATCHES ============ */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: -10 }}
           whileInView={{ opacity: 1, y: 0, rotate: -8 }}
