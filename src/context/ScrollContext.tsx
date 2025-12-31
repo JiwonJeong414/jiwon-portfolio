@@ -5,8 +5,6 @@ import {
   useContext,
   useState,
   useEffect,
-  useCallback,
-  useRef,
   ReactNode,
 } from "react";
 
@@ -18,11 +16,14 @@ interface ScrollContextType {
 
 const ScrollContext = createContext<ScrollContextType | null>(null);
 
-function getScrollValues() {
-  if (typeof window === "undefined") {
-    return { progress: 0, isScrolledPast: false, shouldUnload: false };
-  }
+// Default values used for both SSR and initial client render
+const DEFAULT_SCROLL_STATE = {
+  progress: 0,
+  isScrolledPast: false,
+  shouldUnload: false,
+};
 
+function getScrollValues() {
   const scrollY = window.scrollY;
   const windowHeight = window.innerHeight;
   const progress = Math.min(scrollY / windowHeight, 1);
@@ -35,14 +36,18 @@ function getScrollValues() {
 }
 
 export function ScrollProvider({ children }: { children: ReactNode }) {
-  // Initialize with current scroll position
-  const [scrollState, setScrollState] = useState(() => getScrollValues());
+  // Always initialize with default values to match SSR
+  const [scrollState, setScrollState] = useState(DEFAULT_SCROLL_STATE);
 
   useEffect(() => {
+    // Sync with actual scroll position after hydration
     const handleScroll = () => {
       const values = getScrollValues();
       setScrollState(values);
     };
+
+    // Get initial scroll position on mount
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 

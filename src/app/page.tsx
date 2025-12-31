@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo, useSyncExternalStore } from "react";
 import {
   Scene,
   HangingStars,
@@ -9,9 +10,19 @@ import {
 } from "@/components";
 import { Portfolio } from "@/components/ui/Portfolio";
 
-// Generate random stars
-function generateStars(count: number, size: "sm" | "md" | "lg") {
-  const stars = [];
+interface Star {
+  id: string;
+  left: string;
+  top: string;
+  size: number;
+  opacity: number;
+  animationDelay: string;
+  animationDuration: string;
+}
+
+// Generate random stars - only call this on the client
+function generateStars(count: number, size: "sm" | "md" | "lg"): Star[] {
+  const stars: Star[] = [];
   const sizeMap = { sm: 1, md: 2, lg: 3 };
 
   for (let i = 0; i < count; i++) {
@@ -28,11 +39,34 @@ function generateStars(count: number, size: "sm" | "md" | "lg") {
   return stars;
 }
 
-const smallStars = generateStars(150, "sm");
-const mediumStars = generateStars(60, "md");
-const largeStars = generateStars(25, "lg");
+// Hook to detect if we're on the client (after hydration)
+const emptySubscribe = () => () => {};
+function useIsClient() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true, // Client value
+    () => false, // Server value
+  );
+}
 
 export default function Home() {
+  const isClient = useIsClient();
+
+  // Generate stars only on the client
+  // useMemo ensures we don't regenerate on every render
+  const smallStars = useMemo(
+    () => (isClient ? generateStars(150, "sm") : []),
+    [isClient],
+  );
+  const mediumStars = useMemo(
+    () => (isClient ? generateStars(60, "md") : []),
+    [isClient],
+  );
+  const largeStars = useMemo(
+    () => (isClient ? generateStars(25, "lg") : []),
+    [isClient],
+  );
+
   return (
     <>
       <LoadingScreen />

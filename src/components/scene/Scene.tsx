@@ -124,6 +124,15 @@ function AnimatedStarField() {
 
 export function Scene() {
   const { shouldUnload3D } = useScroll();
+  const { setIsLoaded } = useLoading();
+
+  // If 3D should be unloaded (user scrolled down), mark as loaded immediately
+  // This handles the case where user refreshes while scrolled down
+  useEffect(() => {
+    if (shouldUnload3D) {
+      setIsLoaded(true);
+    }
+  }, [shouldUnload3D, setIsLoaded]);
 
   // Calculate opacity for the entire canvas container
   const canvasOpacity = useMemo(() => {
