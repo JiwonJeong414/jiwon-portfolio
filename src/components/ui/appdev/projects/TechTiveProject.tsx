@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   GlowFrame,
   ProjectTitle,
@@ -35,11 +36,16 @@ export function TechTiveProject() {
           className="absolute top-0 right-[5%] left-[5%] z-10 md:right-[8%] md:left-[8%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
-              src={IMAGES.bannerHero}
-              alt="TechTive hero"
-              className="w-full rounded-xl object-cover"
-            />
+            {/* We use 'relative' and 'w-full' to let the motion.div control the width */}
+            <div className="relative w-full overflow-hidden rounded-xl">
+              <Image
+                src={IMAGES.bannerHero}
+                alt="TechTive hero"
+                width={1200} // Provide base dimensions
+                height={600}
+                className="w-full object-cover"
+              />
+            </div>
           </GlowFrame>
         </motion.div>
 
@@ -51,11 +57,15 @@ export function TechTiveProject() {
           className="absolute top-[10px] left-[0] z-20 md:top-[20px] md:left-[1%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
-              src={IMAGES.logo}
-              alt="TechTive logo"
-              className="h-24 w-24 rounded-xl object-contain md:h-32 md:w-32"
-            />
+            {/* Restored your exact h-24/w-24 classes */}
+            <div className="relative h-24 w-24 md:h-32 md:w-32">
+              <Image
+                src={IMAGES.logo}
+                alt="TechTive logo"
+                fill
+                className="rounded-xl object-contain"
+              />
+            </div>
           </GlowFrame>
         </motion.div>
 
@@ -67,10 +77,15 @@ export function TechTiveProject() {
           className="absolute top-[280px] left-[3%] z-20 w-[80%] md:top-[320px] md:left-[5%] md:w-[70%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
+            <Image
               src={IMAGES.bannerWide}
               alt="TechTive banner"
-              className="w-full rounded-xl object-cover"
+              // These dimensions act as the aspect ratio base
+              width={1200}
+              height={400}
+              // w-full ensures it stretches to the motion.div width
+              // h-auto ensures it scales proportionately
+              className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
         </motion.div>

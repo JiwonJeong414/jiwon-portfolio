@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef, ReactNode } from "react";
 
 export function GlowFrame({
@@ -105,11 +106,14 @@ export function Screenshot({
       viewport={{ once: true }}
       transition={{ delay }}
       whileHover={{ scale: 1.05 }}
+      // We keep your custom width and boxShadow logic exactly as it was
       style={{ boxShadow: `0 4px 15px ${accent}20`, width }}
     >
-      <img
+      <Image
         src={src}
         alt="App screenshot"
+        width={400} // This represents the aspect ratio "base"
+        height={800} // Standard mobile screenshots are roughly 1:2
         className="h-auto w-full object-cover"
       />
     </motion.div>

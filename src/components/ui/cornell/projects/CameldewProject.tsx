@@ -119,10 +119,12 @@ export function CameldewProject() {
         >
           <GlowFrame accent={ACCENT}>
             <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-800">
-              <img
-                src={IMAGES.video} // Ensure your constant points to the .gif file
+              <Image
+                src={IMAGES.video}
                 alt="Gameplay Demo"
-                className="h-full w-full object-cover"
+                fill
+                unoptimized // Critical for GIFs to play correctly in Next.js
+                className="object-cover"
                 style={{ imageRendering: "pixelated" }}
               />
             </div>
@@ -162,7 +164,6 @@ export function CameldewProject() {
         </motion.div>
 
         {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Warm glow */}
         <div
           className="pointer-events-none absolute top-[100px] left-[40%] z-0 h-[300px] w-[300px] rounded-full opacity-15 blur-[120px]"
           style={{
@@ -176,30 +177,21 @@ export function CameldewProject() {
           }}
         />
 
-        {/* Floating particles - pixel style */}
+        {/* Floating particles */}
         <motion.div
-          animate={{
-            y: [0, -8, 0],
-            opacity: [0.4, 0.8, 0.4],
-          }}
+          animate={{ y: [0, -8, 0], opacity: [0.4, 0.8, 0.4] }}
           transition={{ duration: 2.5, repeat: Infinity }}
           className="absolute top-[180px] right-[25%] z-5 h-2 w-2"
           style={{ backgroundColor: ACCENT }}
         />
         <motion.div
-          animate={{
-            y: [0, -6, 0],
-            opacity: [0.3, 0.6, 0.3],
-          }}
+          animate={{ y: [0, -6, 0], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 3, repeat: Infinity, delay: 0.8 }}
           className="absolute top-[450px] left-[40%] z-5 h-2 w-2"
           style={{ backgroundColor: ACCENT }}
         />
         <motion.div
-          animate={{
-            y: [0, -10, 0],
-            opacity: [0.3, 0.7, 0.3],
-          }}
+          animate={{ y: [0, -10, 0], opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
           className="absolute top-[350px] right-[60%] z-5 h-2 w-2"
           style={{ backgroundColor: ACCENT }}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   GlowFrame,
   ProjectTitle,
@@ -64,10 +65,13 @@ export function MillenniumProject() {
           className="absolute top-0 right-[5%] left-[5%] z-10 md:right-[10%] md:left-[10%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
+            <Image
               src={IMAGES.bannerHero}
               alt="Millennium hero"
-              className="w-full rounded-xl object-cover"
+              width={1200} // Base aspect ratio width
+              height={600} // Base aspect ratio height
+              className="h-auto w-full rounded-xl object-cover"
+              priority // High priority as it's the hero image
             />
           </GlowFrame>
         </motion.div>
@@ -80,11 +84,15 @@ export function MillenniumProject() {
           className="absolute top-[200px] left-[0] z-30 md:top-[180px] md:left-[2%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
-              src={IMAGES.logo}
-              alt="Millennium logo"
-              className="h-24 w-24 rounded-xl object-contain md:h-32 md:w-32"
-            />
+            {/* The wrapper div now carries your exact responsive dimensions */}
+            <div className="relative h-24 w-24 md:h-32 md:w-32">
+              <Image
+                src={IMAGES.logo}
+                alt="Millennium logo"
+                fill
+                className="rounded-xl object-contain"
+              />
+            </div>
           </GlowFrame>
         </motion.div>
 
@@ -96,11 +104,15 @@ export function MillenniumProject() {
           className="absolute top-[320px] right-[0] z-20 w-[75%] md:top-[350px] md:right-[5%] md:w-[65%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
-              src={IMAGES.team}
-              alt="Millennium team"
-              className="w-full rounded-xl object-cover"
-            />
+            <div className="relative w-full">
+              <Image
+                src={IMAGES.team}
+                alt="Millennium team"
+                width={800}
+                height={500}
+                className="w-full rounded-xl object-cover"
+              />
+            </div>
           </GlowFrame>
         </motion.div>
 

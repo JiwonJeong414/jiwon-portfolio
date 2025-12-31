@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   GlowFrame,
   ProjectTitle,
@@ -67,10 +68,14 @@ export function UpliftProject() {
           className="absolute top-0 right-0 z-10 w-[85%] md:w-[70%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
+            <Image
               src={IMAGES.bannerHero}
               alt="Uplift hero"
-              className="w-full rounded-xl object-cover"
+              // Use large base dimensions; w-full h-auto handles the scaling
+              width={1200}
+              height={800}
+              className="h-auto w-full rounded-xl object-cover"
+              priority
             />
           </GlowFrame>
         </motion.div>
@@ -82,11 +87,15 @@ export function UpliftProject() {
           className="absolute top-[20px] left-0 z-20 md:top-[40px]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
-              src={IMAGES.logo}
-              alt="Uplift logo"
-              className="h-24 w-24 rounded-xl object-contain md:h-32 md:w-32"
-            />
+            {/* The wrapper div preserves your exact responsive sizing */}
+            <div className="relative h-24 w-24 md:h-32 md:w-32">
+              <Image
+                src={IMAGES.logo}
+                alt="Uplift logo"
+                fill
+                className="rounded-xl object-contain"
+              />
+            </div>
           </GlowFrame>
         </motion.div>
         {/* ============ TAGLINE CARD - Floating, angled ============ */}
@@ -182,7 +191,7 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-        {/* ============ WIDE BANNER - Pushed down on mobile to clear screenshots ============ */}
+        {/* ============ WIDE BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -190,14 +199,16 @@ export function UpliftProject() {
           className="absolute top-[680px] right-[0] z-10 w-[55%] md:top-[475px] md:right-[0] md:w-[50%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
+            <Image
               src={IMAGES.bannerWide}
               alt="Uplift banner"
-              className="w-full rounded-xl object-cover"
+              width={1000}
+              height={600}
+              className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
         </motion.div>
-        {/* ============ TEAM PHOTO - Pushed down on mobile and kept z-index low ============ */}
+        {/* ============ TEAM PHOTO ============ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,10 +216,12 @@ export function UpliftProject() {
           className="absolute top-[820px] left-[0] z-10 w-[50%] md:top-[600px] md:left-[0] md:w-[45%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
+            <Image
               src={IMAGES.teamPhoto}
               alt="Uplift team"
-              className="w-full rounded-xl object-cover"
+              width={800}
+              height={600}
+              className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
           <motion.p
