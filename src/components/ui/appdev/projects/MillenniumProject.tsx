@@ -56,7 +56,7 @@ export function MillenniumProject() {
       <ProjectTitle name="Millennium" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      <div className="relative mx-auto min-h-[950px] max-w-6xl md:min-h-[900px]">
+      <div className="relative mx-auto min-h-[950px] max-w-6xl md:min-h-[880px]">
         {/* ============ HERO BANNER - Top, spans most width ============ */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
