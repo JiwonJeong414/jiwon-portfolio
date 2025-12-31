@@ -15,6 +15,7 @@ const IMAGES = {
   titleScreen: "/portfolio/Cameldew1.png",
   gameplay: "/portfolio/Cameldew2.png",
   logo: "/portfolio/Cameldew3.png",
+  video: "/portfolio/Cameldew4.gif",
 };
 
 export function CameldewProject() {
@@ -109,6 +110,28 @@ export function CameldewProject() {
           </GlowFrame>
         </motion.div>
 
+        {/* ============ GIF - Center bottom ============ */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="absolute top-[580px] right-[10%] left-[10%] z-20 md:top-[550px] md:right-[15%] md:left-[15%]"
+        >
+          <GlowFrame accent={ACCENT}>
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-800">
+              <img
+                src={IMAGES.video} // Ensure your constant points to the .gif file
+                alt="Gameplay Demo"
+                className="h-full w-full object-cover"
+                style={{ imageRendering: "pixelated" }}
+              />
+            </div>
+          </GlowFrame>
+          <p className="mt-2 text-center text-xs text-slate-500 italic">
+            Gameplay Demo
+          </p>
+        </motion.div>
+
         {/* ============ STAT CARDS ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -128,7 +151,7 @@ export function CameldewProject() {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute top-[520px] left-[3%] z-30 md:top-[500px] md:left-[5%]"
+          className="absolute top-[580px] left-[3%] z-30 md:top-[520px] md:left-[7%]"
         >
           <div className="rounded-2xl border border-orange-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md">
             <p className="text-2xl font-bold" style={{ color: ACCENT }}>
