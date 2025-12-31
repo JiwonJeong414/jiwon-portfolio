@@ -24,7 +24,7 @@ export function CameldewProject() {
       <ProjectTitle name="Cameldew Valley" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      <div className="relative mx-auto min-h-[900px] max-w-6xl md:min-h-[750px]">
+      <div className="relative mx-auto min-h-[900px] max-w-6xl md:min-h-[770px]">
         {/* ============ LOGO - Floating top left ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}

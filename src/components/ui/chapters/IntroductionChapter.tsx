@@ -37,21 +37,21 @@ export function IntroductionChapter() {
         >
           {DATA.subtitle}
         </span>
-        <motion.div
-          className="mx-auto mt-2 flex items-center justify-center gap-2"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <span className="text-lg" style={{ color: ACCENT }}>
-            ✦
-          </span>
-        </motion.div>
+        <div className="mb-6 flex items-center justify-center gap-4">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-amber-400/50" />
+          <motion.span
+            className="text-2xl text-yellow-400"
+            animate={{ scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            ★
+          </motion.span>
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-amber-400/50" />
+        </div>
       </motion.div>
 
       {/* Main content - organic layout */}
-      <div className="relative min-h-[500px] md:min-h-[450px]">
+      <div className="relative min-h-[500px] md:min-h-[300px]">
         {/* Image - Left side with tilt */}
         <motion.div
           className="absolute top-0 left-0 z-10 w-[70%] md:w-[45%]"
@@ -144,33 +144,13 @@ export function IntroductionChapter() {
             </blockquote>
           </div>
         </motion.div>
-
-        {/* Floating particles */}
-        <motion.div
-          animate={{
-            y: [0, -10, 0],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="absolute top-[60%] left-[50%] h-2 w-2 rounded-full"
-          style={{ backgroundColor: ACCENT }}
-        />
-        <motion.div
-          animate={{
-            y: [0, -8, 0],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-          className="absolute top-[30%] right-[10%] h-3 w-3 rounded-full"
-          style={{ backgroundColor: ACCENT }}
-        />
       </div>
 
       {/* Connector line to next section */}
       <motion.div
-        className="mx-auto mt-16 h-12 w-px"
-        initial={{ scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
+        className="mx-auto mt-12 h-12 w-px"
+        initial={{ scaleY: 0, y: 80 }} // Starts 40px lower
+        whileInView={{ scaleY: 1, y: 100 }} // Ends 60px lower
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.8 }}
         style={{

@@ -44,7 +44,7 @@ export function Portfolio() {
       <div className="relative mx-auto max-w-6xl px-6 py-24 lg:px-8">
         {/* Header Section */}
         <motion.header
-          className="mb-32 text-center"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

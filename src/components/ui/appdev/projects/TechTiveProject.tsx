@@ -26,7 +26,7 @@ export function TechTiveProject() {
       <ProjectTitle name="TechTive" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      <div className="relative mx-auto min-h-[1100px] max-w-6xl md:min-h-[900px]">
+      <div className="relative mx-auto min-h-[1100px] max-w-6xl md:min-h-[700px]">
         {/* ============ HERO BANNER - Large, centered at top ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -138,7 +138,7 @@ export function TechTiveProject() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-[750px] left-[3%] z-30 max-w-[350px] md:top-[700px] md:left-[5%] md:max-w-[400px]"
+          className="absolute top-[750px] left-[3%] z-30 max-w-[350px] md:top-[680px] md:left-[10%] md:max-w-[400px]"
         >
           <div className="rounded-2xl border border-orange-500/20 bg-slate-900/90 p-5 shadow-2xl shadow-orange-500/10 backdrop-blur-lg">
             <p

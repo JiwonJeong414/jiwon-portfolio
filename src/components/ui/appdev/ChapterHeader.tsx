@@ -9,7 +9,7 @@ const ACCENT = "#FFD700";
 export function ChapterHeader() {
   return (
     <motion.header
-      className="mb-20"
+      className="mb-15"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

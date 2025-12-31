@@ -23,7 +23,7 @@ const DATA = {
 export function CornellHeader() {
   return (
     <motion.header
-      className="mb-20"
+      className="mb-15"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -72,7 +72,7 @@ export function CornellHeader() {
       </div>
 
       {/* Main content - organic layout */}
-      <div className="relative mx-auto min-h-[650px] max-w-6xl md:min-h-[550px]">
+      <div className="relative mx-auto min-h-[550px] max-w-6xl md:min-h-[350px]">
         {/* ============ BANNER/PHOTO - Left side ============ */}
         <motion.div
           initial={{ opacity: 0, x: -30, rotate: -2 }}
@@ -182,15 +182,6 @@ export function CornellHeader() {
         {/* Floating particles */}
         <motion.div
           animate={{
-            y: [0, -12, 0],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{ duration: 3.5, repeat: Infinity }}
-          className="absolute top-[150px] left-[55%] h-2 w-2 rounded-full"
-          style={{ backgroundColor: ACCENT }}
-        />
-        <motion.div
-          animate={{
             y: [0, -8, 0],
             opacity: [0.2, 0.5, 0.2],
           }}
@@ -204,7 +195,7 @@ export function CornellHeader() {
             opacity: [0.25, 0.5, 0.25],
           }}
           transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-          className="absolute top-[450px] right-[40%] h-2 w-2 rounded-full"
+          className="absolute top-[360px] right-[40%] h-2 w-2 rounded-full"
           style={{ backgroundColor: ACCENT }}
         />
       </div>
