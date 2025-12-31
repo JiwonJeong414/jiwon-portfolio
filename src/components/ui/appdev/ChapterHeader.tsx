@@ -1,100 +1,181 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { GlowFrame } from "./components";
 import { APPDEV_DATA } from "./data";
 
-export function ChapterHeader() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+const ACCENT = "#FFD700";
 
+export function ChapterHeader() {
   return (
     <motion.header
-      ref={ref}
-      className="mb-20 text-center"
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      className="mb-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.p
-        className="mb-2 text-sm tracking-[0.3em] text-amber-400/80 uppercase"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        {APPDEV_DATA.subtitle}
-      </motion.p>
-
-      <div className="mb-6 flex items-center justify-center gap-4">
-        <span className="h-px w-16 bg-gradient-to-r from-transparent to-amber-400/50" />
-        <motion.span
-          className="text-2xl text-yellow-400"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
+      {/* ============ TITLE SECTION - Centered at top ============ */}
+      <div className="mb-8 text-center">
+        <motion.p
+          className="mb-2 text-sm tracking-[0.3em] text-amber-400/80 uppercase"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
         >
-          ★
-        </motion.span>
-        <span className="h-px w-16 bg-gradient-to-l from-transparent to-amber-400/50" />
+          {APPDEV_DATA.subtitle}
+        </motion.p>
+
+        <div className="mb-6 flex items-center justify-center gap-4">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-amber-400/50" />
+          <motion.span
+            className="text-2xl text-yellow-400"
+            animate={{ scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            ★
+          </motion.span>
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-amber-400/50" />
+        </div>
+
+        <motion.h2
+          className="title-text mb-4 text-4xl text-amber-200 md:text-5xl lg:text-6xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          {APPDEV_DATA.title}
+        </motion.h2>
+
+        <motion.p
+          className="mb-6 text-sm tracking-wider text-amber-300/60 uppercase"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          {APPDEV_DATA.role}
+        </motion.p>
       </div>
 
-      <h2 className="title-text mb-4 text-4xl text-amber-200 md:text-5xl lg:text-6xl">
-        {APPDEV_DATA.title}
-      </h2>
-
-      <p className="mb-6 text-sm tracking-wider text-amber-300/60 uppercase">
-        {APPDEV_DATA.role}
-      </p>
-
-      <div className="mx-auto mb-10 flex max-w-5xl items-stretch gap-3 px-20">
-        <div className="flex-shrink-0">
-          <GlowFrame accent="#FFD700" className="h-full">
+      {/* ============ MAIN CONTENT - Organic layout ============ */}
+      <div className="relative mx-auto min-h-[600px] max-w-6xl md:min-h-[500px]">
+        {/* ============ LOGO - Floating left ============ */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="absolute top-0 left-[5%] z-20 md:left-[10%]"
+        >
+          <GlowFrame accent={ACCENT}>
             <img
               src={APPDEV_DATA.images.logo}
               alt="AppDev Logo"
-              className="h-20 w-20 rounded object-contain md:h-24 md:w-24"
+              className="h-20 w-20 rounded-xl object-contain md:h-24 md:w-24"
             />
           </GlowFrame>
-        </div>
-        <div className="flex-1">
-          <GlowFrame accent="#FFD700" className="h-full">
+        </motion.div>
+
+        {/* ============ BANNER - Offset to right of logo ============ */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="absolute top-[10px] right-[5%] left-[25%] z-10 md:right-[10%] md:left-[22%]"
+        >
+          <GlowFrame accent={ACCENT}>
             <img
               src={APPDEV_DATA.images.banner}
               alt="Cornell AppDev Banner"
-              className="h-20 w-full rounded object-cover md:h-24"
+              className="h-20 w-full rounded-xl object-cover md:h-30"
             />
           </GlowFrame>
-        </div>
-      </div>
+        </motion.div>
 
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-12 px-4 lg:flex-row lg:gap-16">
-        <div className="w-full lg:w-1/2">
-          <p className="mb-8 font-serif text-lg leading-relaxed text-slate-300/90">
-            {APPDEV_DATA.description}
-          </p>
-          <blockquote className="border-l-2 border-amber-400/30 pl-6">
-            <span className="text-3xl text-amber-400/20">&ldquo;</span>
-            <p className="font-serif text-base text-amber-200/70 italic">
-              {APPDEV_DATA.quote}
+        {/* ============ TEXT CARD - Bottom left, floating ============ */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="absolute top-[120px] left-[3%] z-30 max-w-[380px] md:top-[150px] md:left-[8%] md:max-w-[420px]"
+        >
+          <div className="rounded-2xl border border-amber-500/20 bg-slate-900/90 p-6 shadow-2xl shadow-amber-500/10 backdrop-blur-lg">
+            <p className="mb-6 font-serif text-base leading-relaxed text-slate-300/90 md:text-lg">
+              {APPDEV_DATA.description}
             </p>
-          </blockquote>
-        </div>
-        <div className="w-full lg:w-1/2">
-          <GlowFrame accent="#FFD700">
+            <blockquote className="border-l-2 border-amber-400/30 pl-4">
+              <span className="text-2xl text-amber-400/30">&ldquo;</span>
+              <p className="font-serif text-sm text-amber-200/70 italic md:text-base">
+                {APPDEV_DATA.quote}
+              </p>
+            </blockquote>
+          </div>
+        </motion.div>
+
+        {/* ============ TEAM PHOTO - Right side, large ============ */}
+        <motion.div
+          initial={{ opacity: 0, x: 30, rotate: 2 }}
+          whileInView={{ opacity: 1, x: 0, rotate: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="absolute top-[100px] right-[0] z-20 w-[55%] md:top-[130px] md:right-[5%] md:w-[50%]"
+        >
+          <GlowFrame accent={ACCENT}>
             <img
               src={APPDEV_DATA.images.team}
               alt="AppDev Team"
-              className="w-full rounded object-cover"
+              className="w-full rounded-xl object-cover"
             />
           </GlowFrame>
-        </div>
+        </motion.div>
+
+        {/* ============ DECORATIVE ELEMENTS ============ */}
+        {/* Golden glow */}
+        <div
+          className="pointer-events-none absolute top-[50px] right-[20%] z-0 h-[250px] w-[250px] rounded-full opacity-10 blur-[100px]"
+          style={{
+            background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)`,
+          }}
+        />
+
+        {/* Floating particles */}
+        <motion.div
+          animate={{
+            y: [0, -12, 0],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ duration: 3.5, repeat: Infinity }}
+          className="absolute top-[80px] left-[45%] z-5 h-2 w-2 rounded-full"
+          style={{ backgroundColor: ACCENT }}
+        />
+        <motion.div
+          animate={{
+            y: [0, -8, 0],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+          className="absolute top-[350px] right-[35%] z-5 h-3 w-3 rounded-full"
+          style={{ backgroundColor: ACCENT }}
+        />
+        <motion.div
+          animate={{
+            y: [0, -10, 0],
+            opacity: [0.25, 0.5, 0.25],
+          }}
+          transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+          className="absolute top-[200px] left-[2%] z-5 h-2 w-2 rounded-full"
+          style={{ backgroundColor: ACCENT }}
+        />
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-xs items-center justify-center gap-2">
+      {/* ============ BOTTOM DIVIDER ============ */}
+      <motion.div
+        className="mx-auto mt-35 flex max-w-xs items-center justify-center gap-2"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+      >
         <span className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-400/30 to-amber-400/50" />
         <span className="text-xs text-amber-400/40">✦</span>
         <span className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-400/30 to-amber-400/50" />
-      </div>
+      </motion.div>
     </motion.header>
   );
 }
