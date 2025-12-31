@@ -21,6 +21,39 @@ const IMAGES = {
   logo: "/portfolio/TechTive7.png",
 };
 
+function StatCard({
+  number,
+  label,
+  className,
+  delay = 0,
+}: {
+  number: string;
+  label: string;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay }}
+      // Use 'w-fit' so it doesn't stretch, and 'px-3 py-2' for tighter padding
+      className={`z-50 rounded-xl border border-orange-500/20 bg-slate-900/80 px-4 py-2 shadow-xl backdrop-blur-md ${className}`}
+    >
+      {/* Make the "Winner" part smaller and uppercase */}
+      <p
+        className="text-[20px] leading-tight font-bold"
+        style={{ color: ACCENT }}
+      >
+        {number}
+      </p>
+      {/* Make the "Best Overall" part a subtle sub-text */}
+      <p className="text-[12px] font-medium text-slate-400 opacity-80">
+        {label}
+      </p>
+    </motion.div>
+  );
+}
 export function TechTiveProject() {
   return (
     <ProjectWrapper>
@@ -28,6 +61,14 @@ export function TechTiveProject() {
 
       {/* Main creative canvas */}
       <div className="relative mx-auto min-h-[1100px] max-w-6xl md:min-h-[700px]">
+        {/* ============ HACKATHON STAT CARD - Top Right ============ */}
+        <StatCard
+          number="Hackathon"
+          label="Winner"
+          // Add 'z-50' to the className to force it to the front
+          className="absolute top-[20px] right-[2%] z-50 md:top-[-40px]"
+          delay={0.6}
+        />
         {/* ============ HERO BANNER - Large, centered at top ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -73,7 +114,7 @@ export function TechTiveProject() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="absolute top-[280px] left-[3%] z-20 w-[80%] md:top-[320px] md:left-[5%] md:w-[70%]"
         >
           <GlowFrame accent={ACCENT}>
@@ -152,7 +193,7 @@ export function TechTiveProject() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="absolute top-[750px] left-[3%] z-30 max-w-[350px] md:top-[680px] md:left-[10%] md:max-w-[400px]"
         >
           <div className="rounded-2xl border border-orange-500/20 bg-slate-900/90 p-5 shadow-2xl shadow-orange-500/10 backdrop-blur-lg">
@@ -168,7 +209,7 @@ export function TechTiveProject() {
             </p>
             <div className="mt-4">
               <TechTags
-                tech={["Swift", "SwiftUI", "Core Data"]}
+                tech={["Swift", "SwiftUI", "Python", "Flask", "AWS"]}
                 accent={ACCENT}
               />
             </div>

@@ -10,8 +10,8 @@ const DATA = {
   subtitle: "Chapter III",
   title: "Cornell University",
   role: "Student",
-  description: `Engaged in a diverse academic curriculum and hands-on laboratory research.`,
-  quote: `Dedicated to continuous learning.`,
+  description: `Lost in the Ithaca gorges, found in the library. From class projects to research, view my work at Cornell...`,
+  quote: `You see, one loves the sunset when one is so sad.`,
   images: {
     logo: "/portfolio/Cornell1.png",
     logo2: "/portfolio/Cornell4.png",
@@ -77,14 +77,25 @@ export function CornellHeader() {
         <motion.div
           initial={{ opacity: 0, x: -30, rotate: -2 }}
           whileInView={{ opacity: 1, x: 0, rotate: -1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          // Wait until a tiny bit is visible (0.1) and use a slightly
+          // longer duration (0.8) for a smoother, high-end feel.
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+            ease: [0.21, 0.47, 0.32, 0.98],
+          }}
           className="absolute top-0 left-[0] z-10 w-[65%] md:left-[3%] md:w-[55%]"
         >
           <GlowFrame accent={ACCENT}>
-            <img
+            <Image
               src={DATA.images.photo}
               alt="Cornell"
-              className="w-full rounded-xl object-cover"
+              // These dimensions define the aspect ratio (roughly 16:9)
+              width={1200}
+              height={675}
+              // h-auto w-full ensures it respects the parent's width classes
+              className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
         </motion.div>

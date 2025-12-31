@@ -117,7 +117,10 @@ export function UpliftProject() {
               class schedules, and facility information in real-time.
             </p>
             <div className="mt-4">
-              <TechTags tech={["Swift", "UIKit", "REST API"]} accent={ACCENT} />
+              <TechTags
+                tech={["Swift", "SwiftUI", "GraphQL"]}
+                accent={ACCENT}
+              />
             </div>
           </div>
         </motion.div>

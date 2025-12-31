@@ -107,7 +107,7 @@ export function LumeoProject() {
               navigation.
             </p>
             <TechTags
-              tech={["Swift", "SwiftUI", "MapKit", "SUMO", "Python"]}
+              tech={["Swift", "SwiftUI", "Python", "FastAPI", "AWS"]}
               accent={ACCENT}
             />
           </div>
@@ -165,7 +165,7 @@ export function LumeoProject() {
         >
           <div className="rounded-2xl border border-green-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md">
             <p className="text-2xl font-bold" style={{ color: ACCENT }}>
-              2
+              50
             </p>
             <p className="text-xs text-slate-400">Cities Supported</p>
           </div>

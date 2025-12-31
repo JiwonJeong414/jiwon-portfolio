@@ -188,7 +188,7 @@ export function MillenniumProject() {
             </p>
             <div className="mt-4">
               <TechTags
-                tech={["Swift", "SwiftUI", "WebSocket"]}
+                tech={["Swift", "SwiftUI", "Java", "Springboot"]}
                 accent={ACCENT}
               />
             </div>
