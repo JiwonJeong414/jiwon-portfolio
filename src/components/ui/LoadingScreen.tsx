@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useLoading } from "@/context";
+import { useLoading } from "@/context/LoadingContext";
 
 export function LoadingScreen() {
   const { isLoaded } = useLoading();

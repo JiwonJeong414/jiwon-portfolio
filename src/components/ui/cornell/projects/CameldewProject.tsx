@@ -6,10 +6,11 @@ import {
   GlowFrame,
   ProjectTitle,
   TechTags,
+  Screenshot,
   ProjectWrapper,
-} from "@/components/ui/ProjectComponents";
+} from "../../ProjectComponents";
 
-const ACCENT = "#F97316"; // Warm orange to match the camel logo
+const ACCENT = "#F97316";
 
 const IMAGES = {
   titleScreen: "/portfolio/Cameldew1.png",
@@ -23,9 +24,9 @@ export function CameldewProject() {
     <ProjectWrapper>
       <ProjectTitle name="Cameldew Valley" accent={ACCENT} />
 
-      {/* Main creative canvas */}
+      {/* Mobile: 900px, Desktop: 770px */}
       <div className="relative mx-auto min-h-[900px] max-w-6xl md:min-h-[770px]">
-        {/* ============ LOGO - Floating top left ============ */}
+        {/* LOGO - Floating top left */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
           whileInView={{ opacity: 1, scale: 1, rotate: -3 }}
@@ -44,7 +45,7 @@ export function CameldewProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ TITLE SCREEN - Large hero ============ */}
+        {/* TITLE SCREEN - Large hero */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +65,8 @@ export function CameldewProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ TEXT CARD - Below title, left side ============ */}
+        {/* TEXT CARD - Below title */}
+        {/* Mobile: top-[280px], Desktop: top-[320px] (ratio: 0.875) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +92,8 @@ export function CameldewProject() {
           </div>
         </motion.div>
 
-        {/* ============ GAMEPLAY SCREENSHOT - Right side ============ */}
+        {/* GAMEPLAY SCREENSHOT - Right side */}
+        {/* Mobile: top-[300px], Desktop: top-[330px] (ratio: 0.91) */}
         <motion.div
           initial={{ opacity: 0, x: 30, rotate: 2 }}
           whileInView={{ opacity: 1, x: 0, rotate: 1 }}
@@ -110,7 +113,8 @@ export function CameldewProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ GIF - Center bottom ============ */}
+        {/* GIF - Center bottom */}
+        {/* Mobile: top-[580px], Desktop: top-[550px] (ratio: 1.05) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,11 +123,14 @@ export function CameldewProject() {
         >
           <GlowFrame accent={ACCENT}>
             <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-800">
-              <img
-                src={IMAGES.video} // Ensure your constant points to the .gif file
+              {/* Using img for GIF as Next/Image doesn't handle animated GIFs well */}
+              <Image
+                src={IMAGES.video}
                 alt="Gameplay Demo"
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
                 style={{ imageRendering: "pixelated" }}
+                unoptimized
               />
             </div>
           </GlowFrame>
@@ -132,7 +139,8 @@ export function CameldewProject() {
           </p>
         </motion.div>
 
-        {/* ============ STAT CARDS ============ */}
+        {/* STAT CARDS */}
+        {/* Mobile: top-[250px], Desktop: top-[280px] (ratio: 0.89) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -147,11 +155,12 @@ export function CameldewProject() {
           </div>
         </motion.div>
 
+        {/* Mobile: top-[520px], Desktop: top-[520px] (same) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute top-[580px] left-[3%] z-30 md:top-[520px] md:left-[7%]"
+          className="absolute top-[520px] left-[3%] z-30 md:top-[520px] md:left-[7%]"
         >
           <div className="rounded-2xl border border-orange-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md">
             <p className="text-2xl font-bold" style={{ color: ACCENT }}>
@@ -161,8 +170,7 @@ export function CameldewProject() {
           </div>
         </motion.div>
 
-        {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Warm glow */}
+        {/* DECORATIVE ELEMENTS */}
         <div
           className="pointer-events-none absolute top-[100px] left-[40%] z-0 h-[300px] w-[300px] rounded-full opacity-15 blur-[120px]"
           style={{
@@ -176,7 +184,6 @@ export function CameldewProject() {
           }}
         />
 
-        {/* Floating particles - pixel style */}
         <motion.div
           animate={{
             y: [0, -8, 0],
@@ -205,7 +212,6 @@ export function CameldewProject() {
           style={{ backgroundColor: ACCENT }}
         />
 
-        {/* Pixel-style corner decorations */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.3 }}

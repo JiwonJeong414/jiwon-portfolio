@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ChapterHeader } from "./ChapterHeader";
-import { UpliftProject, TechTiveProject, MillenniumProject } from "./projects";
+import { UpliftProject } from "./projects/UpliftProject";
+import { TechTiveProject } from "./projects/TechTiveProject";
+import { MillenniumProject } from "./projects/MillenniumProject";
 
 export function AppDevChapter() {
   return (

@@ -8,24 +8,21 @@ import {
   TechTags,
   Screenshot,
   ProjectWrapper,
-} from "@/components/ui/ProjectComponents";
+} from "../../ProjectComponents";
 
-const ACCENT = "#22C55E"; // Green for health/environmental theme
+const ACCENT = "#22C55E";
 
 const IMAGES = {
   paper: "/portfolio/Lumeo1.png",
   screenshots: [
-    "/portfolio/Lumeo2.png", // Login
-    "/portfolio/Lumeo3.png", // Map dark with route
-    "/portfolio/Lumeo4.png", // Map green AQ
+    "/portfolio/Lumeo2.png",
+    "/portfolio/Lumeo3.png",
+    "/portfolio/Lumeo4.png",
   ],
-  shapefiles: [
-    "/portfolio/Lumeo7.jpg", // SF shapefile
-    "/portfolio/Lumeo8.jpg", // Philly shapefile
-  ],
-  logoBackground: "/portfolio/Lumeo10.jpg", // City background
-  logoOverlay: "/portfolio/Lumeo9.png", // UTECH logo (transparent)
-  logo: "/portfolio/Lumeo11.png", // UTECH logo standalone
+  shapefiles: ["/portfolio/Lumeo7.jpg", "/portfolio/Lumeo8.jpg"],
+  logoBackground: "/portfolio/Lumeo10.jpg",
+  logoOverlay: "/portfolio/Lumeo9.png",
+  logo: "/portfolio/Lumeo11.png",
   watches: ["/portfolio/Lumeo14.avif", "/portfolio/Lumeo15.avif"],
 };
 
@@ -34,9 +31,8 @@ export function LumeoProject() {
     <ProjectWrapper>
       <ProjectTitle name="Lumeo" accent={ACCENT} />
 
-      {/* Main creative canvas */}
       <div className="relative mx-auto min-h-[1200px] max-w-6xl md:min-h-[1000px]">
-        {/* ============ HERO - Logo on city background ============ */}
+        {/* HERO - Logo on city background */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,14 +41,12 @@ export function LumeoProject() {
         >
           <GlowFrame accent={ACCENT}>
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
-              {/* City background */}
               <Image
                 src={IMAGES.logoBackground}
                 alt="City background"
                 fill
                 className="object-cover"
               />
-              {/* UTECH logo overlay centered */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative h-[40%] w-[60%]">
                   <Image
@@ -67,7 +61,7 @@ export function LumeoProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ LOGO - Floating top left ============ */}
+        {/* LOGO - Floating top left */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -86,7 +80,7 @@ export function LumeoProject() {
           </GlowFrame>
         </motion.div>
 
-        {/* ============ TEXT CARD - Below hero, offset left ============ */}
+        {/* TEXT CARD - Below hero */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -113,7 +107,7 @@ export function LumeoProject() {
           </div>
         </motion.div>
 
-        {/* ============ APP SCREENSHOTS - Fanned on right ============ */}
+        {/* APP SCREENSHOTS - Fanned on right */}
         <motion.div
           initial={{ opacity: 0, x: 20, rotate: -8 }}
           whileInView={{ opacity: 1, x: 0, rotate: -5 }}
@@ -156,7 +150,7 @@ export function LumeoProject() {
           />
         </motion.div>
 
-        {/* ============ STAT CARDS ============ */}
+        {/* STAT CARDS */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -185,12 +179,12 @@ export function LumeoProject() {
           </div>
         </motion.div>
 
-        {/* ============ SHAPEFILES - Overlapping maps ============ */}
+        {/* SHAPEFILES - Overlapping maps */}
         <motion.div
           initial={{ opacity: 0, rotate: -5 }}
           whileInView={{ opacity: 1, rotate: -3 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute top-[580px] left-[0] z-15 w-[50%] md:top-[620px] md:left-[3%] md:w-[40%]"
+          className="absolute top-[700px] left-[0] z-15 w-[50%] md:top-[620px] md:left-[3%] md:w-[40%]"
         >
           <GlowFrame accent={ACCENT}>
             <div className="relative aspect-square w-full overflow-hidden rounded-xl">
@@ -211,7 +205,7 @@ export function LumeoProject() {
           initial={{ opacity: 0, rotate: 4 }}
           whileInView={{ opacity: 1, rotate: 2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-[640px] left-[25%] z-16 w-[45%] md:top-[680px] md:left-[22%] md:w-[35%]"
+          className="absolute top-[768px] left-[25%] z-16 w-[45%] md:top-[680px] md:left-[22%] md:w-[35%]"
         >
           <GlowFrame accent={ACCENT}>
             <div className="relative aspect-square w-full overflow-hidden rounded-xl">
@@ -228,12 +222,12 @@ export function LumeoProject() {
           </p>
         </motion.div>
 
-        {/* ============ PAPER/RESEARCH - Next to shapefiles on right ============ */}
+        {/* PAPER/RESEARCH */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-[580px] right-[0] z-20 w-[40%] md:top-[600px] md:right-[5%] md:w-[32%]"
+          className="absolute top-[680px] right-[0] z-20 w-[40%] md:top-[600px] md:right-[5%] md:w-[32%]"
         >
           <GlowFrame accent={ACCENT}>
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl">
@@ -250,12 +244,12 @@ export function LumeoProject() {
           </p>
         </motion.div>
 
-        {/* ============ WATCHES - Center, no boxes ============ */}
+        {/* WATCHES */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: -10 }}
           whileInView={{ opacity: 1, y: 0, rotate: -8 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="absolute top-[950px] left-[30%] z-25 w-[18%] md:top-[520px] md:left-[35%] md:w-[14%]"
+          className="absolute top-[1050px] left-[30%] z-25 w-[18%] md:top-[520px] md:left-[35%] md:w-[14%]"
         >
           <div className="relative aspect-[3/4] w-full">
             <Image
@@ -272,7 +266,7 @@ export function LumeoProject() {
           initial={{ opacity: 0, y: 20, rotate: 8 }}
           whileInView={{ opacity: 1, y: 0, rotate: 6 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="absolute top-[940px] left-[48%] z-26 w-[18%] md:top-[510px] md:left-[50%] md:w-[14%]"
+          className="absolute top-[1040px] left-[48%] z-26 w-[18%] md:top-[510px] md:left-[50%] md:w-[14%]"
         >
           <div className="relative aspect-[3/4] w-full">
             <Image
@@ -285,8 +279,7 @@ export function LumeoProject() {
           </div>
         </motion.div>
 
-        {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Green glow */}
+        {/* DECORATIVE ELEMENTS */}
         <div
           className="pointer-events-none absolute top-[100px] left-[30%] z-0 h-[300px] w-[300px] rounded-full opacity-15 blur-[120px]"
           style={{
@@ -300,7 +293,6 @@ export function LumeoProject() {
           }}
         />
 
-        {/* Floating particles */}
         <motion.div
           animate={{
             y: [0, -12, 0],

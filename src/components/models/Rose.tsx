@@ -2,7 +2,7 @@
 
 import { useGLTF } from "@react-three/drei";
 import { PlanetObject } from "./PlanetObject";
-import { MODEL_PATHS, ROSE_CONFIG } from "../../constants";
+import { MODEL_PATHS, ROSE_CONFIG } from "@/constants/planet";
 
 export function Rose() {
   return (

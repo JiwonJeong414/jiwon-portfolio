@@ -1,15 +1,12 @@
 "use client";
 
-import {
-  Scene,
-  HangingStars,
-  TitleSection,
-  ScrollIndicator,
-  LoadingScreen,
-} from "@/components";
+import { Scene } from "@/components/scene/Scene";
+import { HangingStars } from "@/components/ui/HangingStars";
+import { TitleSection } from "@/components/ui/TitleSection";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { Portfolio } from "@/components/ui/Portfolio";
 
-// Generate random stars
 function generateStars(count: number, size: "sm" | "md" | "lg") {
   const stars = [];
   const sizeMap = { sm: 1, md: 2, lg: 3 };
@@ -109,7 +106,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Content - WIDENED from max-w-4xl to max-w-6xl */}
+        {/* Content */}
         <div className="relative mx-auto max-w-6xl px-6 py-24">
           <Portfolio />
         </div>

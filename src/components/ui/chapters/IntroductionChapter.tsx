@@ -51,6 +51,7 @@ export function IntroductionChapter() {
       </motion.div>
 
       {/* Main content - organic layout */}
+      {/* Mobile: 500px, Desktop: 300px */}
       <div className="relative min-h-[500px] md:min-h-[300px]">
         {/* Image - Left side with tilt */}
         <motion.div
@@ -107,6 +108,7 @@ export function IntroductionChapter() {
         </motion.div>
 
         {/* Text card - Right side, floating */}
+        {/* Mobile: top-[20px], Desktop: top-[40px] (ratio: 0.5) */}
         <motion.div
           className="absolute top-[20px] right-0 z-20 w-[75%] md:top-[40px] md:right-[5%] md:w-[55%]"
           initial={{ opacity: 0, x: 40, rotate: 1 }}
@@ -149,8 +151,8 @@ export function IntroductionChapter() {
       {/* Connector line to next section */}
       <motion.div
         className="mx-auto mt-12 h-12 w-px"
-        initial={{ scaleY: 0, y: 80 }} // Starts 40px lower
-        whileInView={{ scaleY: 1, y: 100 }} // Ends 60px lower
+        initial={{ scaleY: 0, y: 80 }}
+        whileInView={{ scaleY: 1, y: 100 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.8 }}
         style={{
