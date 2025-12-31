@@ -26,7 +26,7 @@ export function TechTiveProject() {
       <ProjectTitle name="TechTive" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      <div className="relative mx-auto min-h-[1100px] max-w-6xl md:min-h-[950px]">
+      <div className="relative mx-auto min-h-[1100px] max-w-6xl md:min-h-[900px]">
         {/* ============ HERO BANNER - Large, centered at top ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
