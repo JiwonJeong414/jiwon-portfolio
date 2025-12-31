@@ -15,7 +15,6 @@ const IMAGES = {
   titleScreen: "/portfolio/Cameldew1.png",
   gameplay: "/portfolio/Cameldew2.png",
   logo: "/portfolio/Cameldew3.png",
-  video: "/portfolio/Cameldew4.mov",
 };
 
 export function CameldewProject() {
@@ -108,33 +107,6 @@ export function CameldewProject() {
               />
             </div>
           </GlowFrame>
-        </motion.div>
-
-        {/* ============ VIDEO - Center bottom ============ */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-[580px] right-[10%] left-[10%] z-20 md:top-[550px] md:right-[15%] md:left-[15%]"
-        >
-          <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-800">
-              <video
-                src={IMAGES.video}
-                controls
-                loop
-                muted
-                playsInline
-                className="h-full w-full object-cover"
-                style={{ imageRendering: "pixelated" }}
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </GlowFrame>
-          <p className="mt-2 text-center text-xs text-slate-500 italic">
-            Gameplay Demo
-          </p>
         </motion.div>
 
         {/* ============ STAT CARDS ============ */}
