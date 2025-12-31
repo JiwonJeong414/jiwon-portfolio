@@ -131,7 +131,7 @@ export function UpliftProject() {
           initial={{ opacity: 0, y: 30, rotate: -15 }}
           whileInView={{ opacity: 1, y: 0, rotate: -12 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="absolute top-[480px] left-[2%] z-30 w-[90px] md:top-[400px] md:left-[2%] md:w-[120px]"
+          className="absolute top-[480px] left-[2%] z-20 w-[90px] md:top-[400px] md:left-[2%] md:w-[120px]"
         >
           <Screenshot
             src={IMAGES.screenshots[0]}
