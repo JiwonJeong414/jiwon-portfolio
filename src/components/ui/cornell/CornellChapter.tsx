@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CornellHeader } from "./CornellHeader";
+import { LumeoProject } from "./projects";
 // import { Project1, Project2 } from "./projects"; // Uncomment when ready
 
 export function CornellChapter() {
@@ -21,6 +22,7 @@ export function CornellChapter() {
 
         {/* Projects go here */}
         {/* <Project1 /> */}
+        <LumeoProject />
         {/* <Project2 /> */}
       </div>
     </section>
