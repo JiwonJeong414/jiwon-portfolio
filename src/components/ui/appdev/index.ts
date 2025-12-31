@@ -7,5 +7,5 @@ export {
   TechTags,
   Screenshot,
   ProjectWrapper,
-} from "./components";
+} from "../ProjectComponents";
 export { UpliftProject, TechTiveProject, MillenniumProject } from "./projects";

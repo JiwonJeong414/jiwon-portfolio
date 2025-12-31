@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GlowFrame } from "../components";
+import Image from "next/image";
+import { GlowFrame } from "../ProjectComponents";
 
 const ACCENT = "#B31B1B"; // Cornell red
 
@@ -9,12 +10,13 @@ const DATA = {
   subtitle: "Chapter III",
   title: "Cornell University",
   role: "Student",
-  description: ``, // Add description later
-  quote: ``, // Add quote later
+  description: `I am part of various stuff in cornell including labs and stuff like that`,
+  quote: `happy`,
   images: {
-    logo: "/portfolio/cornell-logo.png", // Update path
-    banner: "/portfolio/cornell-banner.png", // Update path
-    photo: "/portfolio/cornell-photo.png", // Update path
+    logo: "/portfolio/Cornell1.png",
+    logo2: "/portfolio/Cornell4.png",
+    logo3: "/portfolio/Cornell5.png",
+    photo: "/portfolio/Cornell3.jpg",
   },
 };
 
@@ -70,49 +72,33 @@ export function CornellHeader() {
       </div>
 
       {/* Main content - organic layout */}
-      <div className="relative mx-auto min-h-[600px] max-w-6xl md:min-h-[500px]">
-        {/* Logo - Floating left */}
+      <div className="relative mx-auto min-h-[650px] max-w-6xl md:min-h-[550px]">
+        {/* ============ BANNER/PHOTO - Left side ============ */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="absolute top-0 left-[5%] z-20 md:left-[10%]"
+          initial={{ opacity: 0, x: -30, rotate: -2 }}
+          whileInView={{ opacity: 1, x: 0, rotate: -1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="absolute top-0 left-[0] z-10 w-[65%] md:left-[3%] md:w-[55%]"
         >
           <GlowFrame accent={ACCENT}>
             <img
-              src={DATA.images.logo}
-              alt="Cornell Logo"
-              className="h-20 w-20 rounded-xl object-contain md:h-24 md:w-24"
+              src={DATA.images.photo}
+              alt="Cornell"
+              className="w-full rounded-xl object-cover"
             />
           </GlowFrame>
         </motion.div>
 
-        {/* Banner - Offset to right of logo */}
+        {/* ============ TEXT CARD - Right side ============ */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 30, rotate: 1 }}
+          whileInView={{ opacity: 1, x: 0, rotate: 0.5 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="absolute top-[10px] right-[5%] left-[25%] z-10 md:right-[10%] md:left-[22%]"
+          className="absolute top-[20px] right-[0] z-20 w-[55%] md:top-[40px] md:right-[5%] md:w-[45%]"
         >
-          <GlowFrame accent={ACCENT}>
-            <img
-              src={DATA.images.banner}
-              alt="Cornell Banner"
-              className="h-20 w-full rounded-xl object-cover md:h-24"
-            />
-          </GlowFrame>
-        </motion.div>
-
-        {/* Text card - Bottom left */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute top-[120px] left-[3%] z-30 max-w-[380px] md:top-[140px] md:left-[8%] md:max-w-[420px]"
-        >
-          <div className="rounded-2xl border border-red-500/20 bg-slate-900/90 p-6 shadow-2xl shadow-red-500/10 backdrop-blur-lg">
-            <p className="mb-6 font-serif text-base leading-relaxed text-slate-300/90 md:text-lg">
-              {DATA.description || "Description coming soon..."}
+          <div className="rounded-2xl border border-red-500/20 bg-slate-900/90 p-5 shadow-2xl shadow-red-500/10 backdrop-blur-lg md:p-6">
+            <p className="mb-5 font-serif text-base leading-relaxed text-slate-300/90 md:text-lg">
+              {DATA.description}
             </p>
             {DATA.quote && (
               <blockquote className="border-l-2 border-red-400/30 pl-4">
@@ -125,25 +111,69 @@ export function CornellHeader() {
           </div>
         </motion.div>
 
-        {/* Photo - Right side */}
-        <motion.div
-          initial={{ opacity: 0, x: 30, rotate: 2 }}
-          whileInView={{ opacity: 1, x: 0, rotate: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-[100px] right-[0] z-20 w-[55%] md:top-[120px] md:right-[5%] md:w-[50%]"
-        >
-          <GlowFrame accent={ACCENT}>
-            <img
-              src={DATA.images.photo}
-              alt="Cornell"
-              className="w-full rounded-xl object-cover"
-            />
-          </GlowFrame>
-        </motion.div>
+        {/* ============ LOGOS - Grouped & overlapping below text ============ */}
+        <div className="absolute top-[320px] right-[10%] z-30 md:top-[200px] md:right-[35%]">
+          {/* Logo 1 - Back left */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: -8 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="absolute top-0 left-0 z-10"
+          >
+            <GlowFrame accent={ACCENT}>
+              <div className="relative h-20 w-20 md:h-20 md:w-20">
+                <Image
+                  src={DATA.images.logo}
+                  alt="Cornell Logo"
+                  fill
+                  className="rounded-xl object-cover"
+                />
+              </div>
+            </GlowFrame>
+          </motion.div>
 
-        {/* Decorative elements */}
+          {/* Logo 2 - Middle, slightly forward */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: 3 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 2 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="absolute top-[10px] left-[60px] z-20 md:left-[90px]"
+          >
+            <GlowFrame accent={ACCENT}>
+              <div className="relative h-20 w-20 md:h-20 md:w-20">
+                <Image
+                  src={DATA.images.logo2}
+                  alt="Cornell Logo 2"
+                  fill
+                  className="rounded-xl object-cover"
+                />
+              </div>
+            </GlowFrame>
+          </motion.div>
+
+          {/* Logo 3 - Front right */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: -3 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="absolute top-[0px] left-[120px] z-30 md:left-[180px]"
+          >
+            <GlowFrame accent={ACCENT}>
+              <div className="relative h-20 w-20 md:h-20 md:w-20">
+                <Image
+                  src={DATA.images.logo3}
+                  alt="Cornell Logo 3"
+                  fill
+                  className="rounded-xl object-cover"
+                />
+              </div>
+            </GlowFrame>
+          </motion.div>
+        </div>
+
+        {/* ============ DECORATIVE ELEMENTS ============ */}
         <div
-          className="pointer-events-none absolute top-[50px] right-[20%] z-0 h-[250px] w-[250px] rounded-full opacity-10 blur-[100px]"
+          className="pointer-events-none absolute top-[50px] left-[30%] z-0 h-[250px] w-[250px] rounded-full opacity-10 blur-[100px]"
           style={{
             background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)`,
           }}
@@ -156,7 +186,7 @@ export function CornellHeader() {
             opacity: [0.3, 0.6, 0.3],
           }}
           transition={{ duration: 3.5, repeat: Infinity }}
-          className="absolute top-[80px] left-[45%] h-2 w-2 rounded-full"
+          className="absolute top-[150px] left-[55%] h-2 w-2 rounded-full"
           style={{ backgroundColor: ACCENT }}
         />
         <motion.div
@@ -165,7 +195,16 @@ export function CornellHeader() {
             opacity: [0.2, 0.5, 0.2],
           }}
           transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-          className="absolute top-[350px] right-[35%] h-3 w-3 rounded-full"
+          className="absolute top-[350px] left-[25%] h-3 w-3 rounded-full"
+          style={{ backgroundColor: ACCENT }}
+        />
+        <motion.div
+          animate={{
+            y: [0, -10, 0],
+            opacity: [0.25, 0.5, 0.25],
+          }}
+          transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+          className="absolute top-[450px] right-[40%] h-2 w-2 rounded-full"
           style={{ backgroundColor: ACCENT }}
         />
       </div>

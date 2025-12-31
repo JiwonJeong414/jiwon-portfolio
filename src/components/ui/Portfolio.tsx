@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChapterIntroduction } from "./chapters/ChapterIntroduction";
-import { AppDevChapter } from "./appdev/AppDevChapter"; // Your existing file
-import { ChapterJourney } from "./chapters/ChapterJourney";
-import { ChapterCreations } from "./chapters/ChapterCreations";
+import { IntroductionChapter } from "./chapters/IntroductionChapter";
+import { AppDevChapter } from "./appdev/AppDevChapter";
+import { CornellChapter } from "./cornell/CornellChapter";
 
 export function Portfolio() {
   return (
@@ -105,11 +104,10 @@ export function Portfolio() {
         </motion.header>
 
         {/* Story Chapters */}
-        <div className="relative space-y-10">
-          <ChapterIntroduction />
+        <div className="relative space-y-32">
+          <IntroductionChapter />
           <AppDevChapter />
-          <ChapterJourney />
-          <ChapterCreations />
+          <CornellChapter />
         </div>
 
         {/* Footer / Contact Section */}

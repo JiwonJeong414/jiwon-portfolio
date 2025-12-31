@@ -3,18 +3,18 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const ACCENT = "#98D8AA";
+const ACCENT = "#FFD700";
 
 const DATA = {
-  subtitle: "Chapter IV",
-  title: "The Creations",
-  content: `Now I create experiences that feel like stories—interfaces that guide, delight, and inspire. Each project is a new planet to explore, a new rose to nurture, a new friend to make along the way.`,
-  quote: `"All grown-ups were once children... but only few of them remember it."`,
-  image: "/portfolio/beginning.jpeg",
-  imageAlt: "Portfolio of creations",
+  subtitle: "Chapter I",
+  title: "Introduction",
+  content: `Hello! I'm Jiwon. Right now, I'm a student at Cornell, but I like to think of myself as a digital craftsman. I spend my days (and many late nights!) building apps for my campus community and mentoring the next generation of developers. My favorite part of software engineering is when a user finds something I built truly helpful.`,
+  quote: `"What makes the desert beautiful is that somewhere it hides a well."`,
+  image: "/portfolio/Beginning.jpeg",
+  imageAlt: "A developer's first steps",
 };
 
-export function ChapterCreations() {
+export function IntroductionChapter() {
   return (
     <motion.article
       className="relative"
@@ -50,7 +50,7 @@ export function ChapterCreations() {
         </motion.div>
       </motion.div>
 
-      {/* Main content - organic layout (image on left) */}
+      {/* Main content - organic layout */}
       <div className="relative min-h-[500px] md:min-h-[450px]">
         {/* Image - Left side with tilt */}
         <motion.div
@@ -68,7 +68,7 @@ export function ChapterCreations() {
             />
 
             {/* Main image container */}
-            <div className="relative overflow-hidden rounded-xl border border-emerald-400/20 bg-slate-900/50 p-3 shadow-xl backdrop-blur-sm">
+            <div className="relative overflow-hidden rounded-xl border border-amber-400/20 bg-slate-900/50 p-3 shadow-xl backdrop-blur-sm">
               <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
                 <Image
                   src={DATA.image}
@@ -79,15 +79,15 @@ export function ChapterCreations() {
               </div>
 
               {/* Corner decorations */}
-              <div className="absolute top-2 left-2 h-4 w-4 border-t-2 border-l-2 border-emerald-300/40" />
-              <div className="absolute top-2 right-2 h-4 w-4 border-t-2 border-r-2 border-emerald-300/40" />
-              <div className="absolute bottom-2 left-2 h-4 w-4 border-b-2 border-l-2 border-emerald-300/40" />
-              <div className="absolute right-2 bottom-2 h-4 w-4 border-r-2 border-b-2 border-emerald-300/40" />
+              <div className="absolute top-2 left-2 h-4 w-4 border-t-2 border-l-2 border-amber-300/40" />
+              <div className="absolute top-2 right-2 h-4 w-4 border-t-2 border-r-2 border-amber-300/40" />
+              <div className="absolute bottom-2 left-2 h-4 w-4 border-b-2 border-l-2 border-amber-300/40" />
+              <div className="absolute right-2 bottom-2 h-4 w-4 border-r-2 border-b-2 border-amber-300/40" />
             </div>
 
             {/* Decorative stars */}
             <motion.span
-              className="absolute -top-4 -right-4 text-2xl text-emerald-400"
+              className="absolute -top-4 -right-4 text-2xl text-yellow-400"
               animate={{ rotate: 360, scale: [1, 1.1, 1] }}
               transition={{
                 rotate: { duration: 20, repeat: Infinity },
@@ -97,7 +97,7 @@ export function ChapterCreations() {
               ✦
             </motion.span>
             <motion.span
-              className="absolute -bottom-2 -left-6 text-lg text-emerald-300"
+              className="absolute -bottom-2 -left-6 text-lg text-amber-300"
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 4, repeat: Infinity, delay: 1 }}
             >
@@ -114,9 +114,9 @@ export function ChapterCreations() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <div className="rounded-2xl border border-emerald-400/20 bg-slate-900/90 p-6 shadow-2xl shadow-emerald-500/10 backdrop-blur-lg md:p-8">
+          <div className="rounded-2xl border border-amber-500/20 bg-slate-900/90 p-6 shadow-2xl shadow-amber-500/10 backdrop-blur-lg md:p-8">
             {/* Title */}
-            <h2 className="title-text mb-4 text-3xl text-emerald-200 md:text-4xl lg:text-5xl">
+            <h2 className="title-text mb-4 text-3xl text-amber-200 md:text-4xl lg:text-5xl">
               {DATA.title}
             </h2>
 
@@ -134,11 +134,11 @@ export function ChapterCreations() {
             </p>
 
             {/* Quote */}
-            <blockquote className="relative border-l-2 border-emerald-400/30 pl-4">
-              <span className="absolute -top-2 -left-2 text-3xl text-emerald-400/20">
+            <blockquote className="relative border-l-2 border-amber-400/30 pl-4">
+              <span className="absolute -top-2 -left-2 text-3xl text-amber-400/20">
                 &quot;
               </span>
-              <p className="font-serif text-sm text-emerald-200/70 italic md:text-base">
+              <p className="font-serif text-sm text-amber-200/70 italic md:text-base">
                 {DATA.quote}
               </p>
             </blockquote>
@@ -165,6 +165,19 @@ export function ChapterCreations() {
           style={{ backgroundColor: ACCENT }}
         />
       </div>
+
+      {/* Connector line to next section */}
+      <motion.div
+        className="mx-auto mt-16 h-12 w-px"
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        style={{
+          background: `linear-gradient(to bottom, ${ACCENT}40, transparent)`,
+          transformOrigin: "top",
+        }}
+      />
     </motion.article>
   );
 }

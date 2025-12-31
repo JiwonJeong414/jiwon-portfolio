@@ -7,7 +7,7 @@ import {
   TechTags,
   Screenshot,
   ProjectWrapper,
-} from "../components";
+} from "../../ProjectComponents";
 
 const ACCENT = "#3B82F6";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GlowFrame } from "./components";
+import { GlowFrame } from "../ProjectComponents";
 import { APPDEV_DATA } from "./data";
 
 const ACCENT = "#FFD700";
