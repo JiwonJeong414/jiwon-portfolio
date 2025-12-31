@@ -72,7 +72,6 @@ export function CornellHeader() {
       </div>
 
       {/* Main content - organic layout */}
-      {/* Mobile: 550px, Desktop: 350px */}
       <div className="relative mx-auto min-h-[550px] max-w-6xl md:min-h-[350px]">
         {/* ============ BANNER/PHOTO - Left side ============ */}
         <motion.div
@@ -82,19 +81,15 @@ export function CornellHeader() {
           className="absolute top-0 left-[0] z-10 w-[65%] md:left-[3%] md:w-[55%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={DATA.images.photo}
-                alt="Cornell"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={DATA.images.photo}
+              alt="Cornell"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ TEXT CARD - Right side ============ */}
-        {/* Mobile: top-[20px], Desktop: top-[40px] (ratio: 0.5) */}
         <motion.div
           initial={{ opacity: 0, x: 30, rotate: 1 }}
           whileInView={{ opacity: 1, x: 0, rotate: 0.5 }}
@@ -117,7 +112,6 @@ export function CornellHeader() {
         </motion.div>
 
         {/* ============ LOGOS - Grouped & overlapping below text ============ */}
-        {/* Mobile: top-[320px], Desktop: top-[200px] (ratio: 1.6) */}
         <div className="absolute top-[320px] right-[10%] z-30 md:top-[200px] md:right-[35%]">
           {/* Logo 1 - Back left */}
           <motion.div

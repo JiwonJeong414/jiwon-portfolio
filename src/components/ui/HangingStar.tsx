@@ -1,6 +1,6 @@
 "use client";
 
-import { HangingStarConfig } from "@/constants/stars";
+import { HangingStarConfig } from "@/constants";
 
 interface HangingStarProps {
   config: HangingStarConfig;

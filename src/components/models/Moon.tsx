@@ -14,7 +14,7 @@ import {
   PLANET_SCALE,
   PLANET_ANIMATION,
   PLANET_MATERIAL,
-} from "@/constants/planet";
+} from "../../constants";
 
 export function Moon() {
   const groupRef = useRef<THREE.Group>(null!);
@@ -38,14 +38,17 @@ export function Moon() {
   useFrame((state) => {
     const time = state.clock.elapsedTime;
 
+    // Horizontal sway
     groupRef.current.rotation.y =
       PLANET_ROTATION.y +
       Math.sin(time * PLANET_ANIMATION.ySpeed) * PLANET_ANIMATION.maxYAngle;
 
+    // Subtle vertical tilt
     groupRef.current.rotation.x =
       PLANET_ROTATION.x +
       Math.sin(time * PLANET_ANIMATION.xSpeed) * PLANET_ANIMATION.maxXAngle;
 
+    // Vertical bob
     groupRef.current.position.y =
       PLANET_POSITION.y +
       Math.sin(time * PLANET_ANIMATION.bobSpeed) * PLANET_ANIMATION.bobAmount;
@@ -57,9 +60,16 @@ export function Moon() {
       position={[PLANET_POSITION.x, PLANET_POSITION.y, PLANET_POSITION.z]}
       rotation={[PLANET_ROTATION.x, PLANET_ROTATION.y, PLANET_ROTATION.z]}
     >
+      {/* Planet */}
       <primitive object={scene} scale={PLANET_SCALE} />
+
+      {/* Rose */}
       <Rose />
+
+      {/* Character */}
       <Character />
+
+      {/* Fox */}
       <Fox />
     </group>
   );

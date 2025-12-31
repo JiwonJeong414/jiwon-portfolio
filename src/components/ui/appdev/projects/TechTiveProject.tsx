@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   GlowFrame,
   ProjectTitle,
@@ -15,6 +14,7 @@ const ACCENT = "#F97316";
 const IMAGES = {
   bannerHero: "/portfolio/TechTive1.png",
   bannerWide: "/portfolio/TechTive2.png",
+  // 3 & 4 are long/tall screenshots, 5 & 6 are standard phone size
   screenshotsLong: ["/portfolio/TechTive3.png", "/portfolio/TechTive4.png"],
   screenshotsStandard: ["/portfolio/TechTive5.png", "/portfolio/TechTive6.png"],
   logo: "/portfolio/TechTive7.png",
@@ -26,7 +26,6 @@ export function TechTiveProject() {
       <ProjectTitle name="TechTive" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      {/* Mobile: 1100px, Desktop: 700px */}
       <div className="relative mx-auto min-h-[1100px] max-w-6xl md:min-h-[700px]">
         {/* ============ HERO BANNER - Large, centered at top ============ */}
         <motion.div
@@ -36,19 +35,15 @@ export function TechTiveProject() {
           className="absolute top-0 right-[5%] left-[5%] z-10 md:right-[8%] md:left-[8%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-video w-full">
-              <Image
-                src={IMAGES.bannerHero}
-                alt="TechTive hero"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={IMAGES.bannerHero}
+              alt="TechTive hero"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ LOGO - Floating top left ============ */}
-        {/* Mobile: top-[10px], Desktop: top-[20px] (ratio: 0.5) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -56,19 +51,15 @@ export function TechTiveProject() {
           className="absolute top-[10px] left-[0] z-20 md:top-[20px] md:left-[1%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative h-24 w-24 md:h-32 md:w-32">
-              <Image
-                src={IMAGES.logo}
-                alt="TechTive logo"
-                fill
-                className="rounded-xl object-contain"
-              />
-            </div>
+            <img
+              src={IMAGES.logo}
+              alt="TechTive logo"
+              className="h-24 w-24 rounded-xl object-contain md:h-32 md:w-32"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ WIDE BANNER - Below hero ============ */}
-        {/* Mobile: top-[280px], Desktop: top-[320px] (ratio: 0.875) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -76,19 +67,15 @@ export function TechTiveProject() {
           className="absolute top-[280px] left-[3%] z-20 w-[80%] md:top-[320px] md:left-[5%] md:w-[70%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-video w-full">
-              <Image
-                src={IMAGES.bannerWide}
-                alt="TechTive banner"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={IMAGES.bannerWide}
+              alt="TechTive banner"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ STANDARD SCREENSHOTS - On the wide banner, fanned ============ */}
-        {/* Mobile: top-[260px], Desktop: top-[340px] (ratio: 0.76) */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: 8 }}
           whileInView={{ opacity: 1, y: 0, rotate: 4 }}
@@ -103,12 +90,11 @@ export function TechTiveProject() {
           />
         </motion.div>
 
-        {/* Mobile: top-[490px], Desktop: top-[640px] (ratio: 0.77) */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: 5 }}
           whileInView={{ opacity: 1, y: 0, rotate: 3 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute top-[490px] right-[2%] z-25 w-[100px] md:top-[640px] md:right-[3%] md:w-[130px]"
+          className="absolute top-[260px] right-[2%] z-25 w-[100px] md:top-[640px] md:right-[3%] md:w-[130px]"
         >
           <Screenshot
             src={IMAGES.screenshotsStandard[1]}
@@ -119,12 +105,11 @@ export function TechTiveProject() {
         </motion.div>
 
         {/* ============ LONG SCREENSHOTS - Stacked on right side ============ */}
-        {/* Mobile: top-[215px], Desktop: top-[280px] (ratio: 0.77) */}
         <motion.div
           initial={{ opacity: 0, x: 30, rotate: -3 }}
           whileInView={{ opacity: 1, x: 0, rotate: -5 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="absolute top-[215px] right-[2%] z-25 w-[100px] md:top-[280px] md:right-[3%] md:w-[130px]"
+          className="absolute top-[260px] right-[2%] z-25 w-[100px] md:top-[280px] md:right-[3%] md:w-[130px]"
         >
           <Screenshot
             src={IMAGES.screenshotsLong[0]}
@@ -134,12 +119,11 @@ export function TechTiveProject() {
           />
         </motion.div>
 
-        {/* Mobile: top-[416px], Desktop: top-[540px] (ratio: 0.77) */}
         <motion.div
           initial={{ opacity: 0, x: 30, rotate: -2 }}
           whileInView={{ opacity: 1, x: 0, rotate: -6 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="absolute top-[416px] right-[8%] z-26 w-[95px] md:top-[540px] md:right-[16%] md:w-[120px]"
+          className="absolute top-[520px] right-[8%] z-26 w-[95px] md:top-[540px] md:right-[16%] md:w-[120px]"
         >
           <Screenshot
             src={IMAGES.screenshotsLong[1]}
@@ -150,7 +134,6 @@ export function TechTiveProject() {
         </motion.div>
 
         {/* ============ TEXT CARD - Bottom left, floating ============ */}
-        {/* Mobile: top-[750px], Desktop: top-[680px] (ratio: 1.1) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

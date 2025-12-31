@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, ReactNode } from "react";
-import Image from "next/image";
 
 export function GlowFrame({
   children,
@@ -100,7 +99,7 @@ export function Screenshot({
 }) {
   return (
     <motion.div
-      className="relative overflow-hidden rounded-lg border border-white/10 bg-slate-900/60"
+      className="overflow-hidden rounded-lg border border-white/10 bg-slate-900/60"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -108,11 +107,9 @@ export function Screenshot({
       whileHover={{ scale: 1.05 }}
       style={{ boxShadow: `0 4px 15px ${accent}20`, width }}
     >
-      <Image
+      <img
         src={src}
         alt="App screenshot"
-        width={200}
-        height={400}
         className="h-auto w-full object-cover"
       />
     </motion.div>

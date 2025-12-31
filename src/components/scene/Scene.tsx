@@ -6,15 +6,14 @@ import { useProgress } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 import { StarField } from "./Stars";
-import { Moon } from "../models/Moon";
-import { useLoading } from "@/context/LoadingContext";
-import { useScroll } from "@/context/ScrollContext";
+import { Moon } from "../models";
+import { useLoading, useScroll } from "@/context";
 import {
   CAMERA_CONFIG,
   LIGHT_CONFIG,
   BLOOM_CONFIG,
   SCENE_COLORS,
-} from "@/constants/scene";
+} from "../../constants";
 
 function LoadingTracker() {
   const { progress } = useProgress();

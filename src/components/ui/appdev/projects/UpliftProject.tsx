@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   GlowFrame,
   ProjectTitle,
@@ -25,6 +24,7 @@ const IMAGES = {
   ],
 };
 
+// Floating stat card component
 function StatCard({
   number,
   label,
@@ -57,10 +57,9 @@ export function UpliftProject() {
       <ProjectTitle name="Uplift" accent={ACCENT} />
 
       {/* Main creative canvas - relative container for absolute positioning */}
-      {/* Mobile: 1200px, Desktop: 850px */}
       <div className="relative mx-auto min-h-[1200px] max-w-6xl md:min-h-[850px]">
+        {" "}
         {/* ============ HERO BANNER - Large, offset to right ============ */}
-        {/* Mobile: top-0, Desktop: top-0 */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -68,19 +67,14 @@ export function UpliftProject() {
           className="absolute top-0 right-0 z-10 w-[85%] md:w-[70%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-video w-full">
-              <Image
-                src={IMAGES.bannerHero}
-                alt="Uplift hero"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={IMAGES.bannerHero}
+              alt="Uplift hero"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
-
         {/* ============ LOGO - Floating top left, overlapping ============ */}
-        {/* Mobile: top-[20px], Desktop: top-[40px] (ratio: 0.5) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -88,19 +82,14 @@ export function UpliftProject() {
           className="absolute top-[20px] left-0 z-20 md:top-[40px]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative h-24 w-24 md:h-32 md:w-32">
-              <Image
-                src={IMAGES.logo}
-                alt="Uplift logo"
-                fill
-                className="rounded-xl object-contain"
-              />
-            </div>
+            <img
+              src={IMAGES.logo}
+              alt="Uplift logo"
+              className="h-24 w-24 rounded-xl object-contain md:h-32 md:w-32"
+            />
           </GlowFrame>
         </motion.div>
-
         {/* ============ TAGLINE CARD - Floating, angled ============ */}
-        {/* Mobile: top-[140px], Desktop: top-[200px] (ratio: 0.7) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -123,31 +112,26 @@ export function UpliftProject() {
             </div>
           </div>
         </motion.div>
-
         {/* ============ STAT CARDS - Scattered around ============ */}
-        {/* Mobile: top-[60px], Desktop: top-[20px] (mobile scaled up from hero) */}
         <StatCard
           number="5+"
           label="Campus Gyms"
           className="absolute top-[60px] right-[5%] z-30 md:top-[20px] md:right-[5%]"
           delay={0.4}
         />
-        {/* Mobile: top-[350px], Desktop: top-[280px] (ratio: 1.25) */}
         <StatCard
           number="1000+"
           label="Active Users"
           className="absolute top-[350px] right-[0] z-30 md:top-[280px] md:right-[2%]"
           delay={0.5}
         />
-
         {/* ============ SCREENSHOTS - Fanned out arrangement ============ */}
         {/* Screenshot 1 - leftmost, tilted left */}
-        {/* Mobile: top-[560px], Desktop: top-[400px] (ratio: 1.4) */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: -15 }}
           whileInView={{ opacity: 1, y: 0, rotate: -12 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="absolute top-[560px] left-[2%] z-20 w-[90px] md:top-[400px] md:left-[2%] md:w-[120px]"
+          className="absolute top-[480px] left-[2%] z-20 w-[90px] md:top-[400px] md:left-[2%] md:w-[120px]"
         >
           <Screenshot
             src={IMAGES.screenshots[0]}
@@ -156,14 +140,12 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-
-        {/* Screenshot 2 */}
-        {/* Mobile: top-[546px], Desktop: top-[390px] (ratio: 1.4) */}
+        {/* Screenshot 2 - Adjusted top from 370 to 470 */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: -8 }}
           whileInView={{ opacity: 1, y: 0, rotate: -5 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="absolute top-[546px] left-[12%] z-21 w-[95px] md:top-[390px] md:left-[11%] md:w-[130px]"
+          className="absolute top-[470px] left-[12%] z-21 w-[95px] md:top-[390px] md:left-[11%] md:w-[130px]"
         >
           <Screenshot
             src={IMAGES.screenshots[1]}
@@ -172,14 +154,12 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-
-        {/* Screenshot 3 */}
-        {/* Mobile: top-[539px], Desktop: top-[385px] (ratio: 1.4) */}
+        {/* Screenshot 3 - Adjusted top from 365 to 465 */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: 5 }}
           whileInView={{ opacity: 1, y: 0, rotate: 3 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="absolute top-[539px] left-[23%] z-22 w-[95px] md:top-[385px] md:left-[21%] md:w-[130px]"
+          className="absolute top-[465px] left-[23%] z-22 w-[95px] md:top-[385px] md:left-[21%] md:w-[130px]"
         >
           <Screenshot
             src={IMAGES.screenshots[2]}
@@ -188,14 +168,12 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-
-        {/* Screenshot 4 */}
-        {/* Mobile: top-[581px], Desktop: top-[415px] (ratio: 1.4) */}
+        {/* Screenshot 4 - Adjusted top from 375 to 475 */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: 12 }}
           whileInView={{ opacity: 1, y: 0, rotate: 10 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute top-[581px] left-[34%] z-23 w-[90px] md:top-[415px] md:left-[31%] md:w-[120px]"
+          className="absolute top-[475px] left-[34%] z-23 w-[90px] md:top-[415px] md:left-[31%] md:w-[120px]"
         >
           <Screenshot
             src={IMAGES.screenshots[3]}
@@ -204,44 +182,34 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-
-        {/* ============ WIDE BANNER ============ */}
-        {/* Mobile: top-[800px], Desktop: top-[475px] (ratio: 1.68) */}
+        {/* ============ WIDE BANNER - Pushed down on mobile to clear screenshots ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="absolute top-[800px] right-[0] z-10 w-[55%] md:top-[475px] md:right-[0] md:w-[50%]"
+          className="absolute top-[680px] right-[0] z-10 w-[55%] md:top-[475px] md:right-[0] md:w-[50%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-video w-full">
-              <Image
-                src={IMAGES.bannerWide}
-                alt="Uplift banner"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={IMAGES.bannerWide}
+              alt="Uplift banner"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
-
-        {/* ============ TEAM PHOTO ============ */}
-        {/* Mobile: top-[960px], Desktop: top-[600px] (ratio: 1.6) */}
+        {/* ============ TEAM PHOTO - Pushed down on mobile and kept z-index low ============ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute top-[960px] left-[0] z-10 w-[50%] md:top-[600px] md:left-[0] md:w-[45%]"
+          className="absolute top-[820px] left-[0] z-10 w-[50%] md:top-[600px] md:left-[0] md:w-[45%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={IMAGES.teamPhoto}
-                alt="Uplift team"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={IMAGES.teamPhoto}
+              alt="Uplift team"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
           <motion.p
             initial={{ opacity: 0 }}
@@ -252,8 +220,8 @@ export function UpliftProject() {
             The team behind Uplift
           </motion.p>
         </motion.div>
-
         {/* ============ DECORATIVE ELEMENTS ============ */}
+        {/* Floating accent dots */}
         <motion.div
           animate={{
             y: [0, -10, 0],
@@ -281,7 +249,6 @@ export function UpliftProject() {
           className="absolute top-[150px] right-[60%] z-5 h-2 w-2 rounded-full"
           style={{ backgroundColor: ACCENT }}
         />
-
         {/* Grid lines for that tech feel */}
         <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03]">
           <div

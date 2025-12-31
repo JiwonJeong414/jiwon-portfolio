@@ -2,13 +2,8 @@
 
 import { motion, useTransform, useMotionValue } from "framer-motion";
 import { useEffect } from "react";
-import {
-  titleVariants,
-  scaleInVariants,
-  fadeInVariants,
-} from "@/constants/animations";
-import { useLoading } from "@/context/LoadingContext";
-import { useScroll } from "@/context/ScrollContext";
+import { titleVariants, scaleInVariants, fadeInVariants } from "@/constants";
+import { useLoading, useScroll } from "@/context";
 
 export function TitleSection() {
   const { isLoaded } = useLoading();

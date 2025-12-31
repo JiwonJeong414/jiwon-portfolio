@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useLoading } from "@/context/LoadingContext";
-import { useScroll } from "@/context/ScrollContext";
+import { useLoading, useScroll } from "@/context";
 import { useEffect, useState } from "react";
 
 export function ScrollIndicator() {

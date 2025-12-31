@@ -1,25 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { GlowFrame } from "../ProjectComponents";
+import { APPDEV_DATA } from "./data";
 
 const ACCENT = "#FFD700";
-
-const APPDEV_DATA = {
-  title: "Cornell AppDev",
-  subtitle: "Chapter II",
-  role: "iOS Developer",
-  description:
-    "A project team at Cornell University dedicated to building apps that serve the Cornell community and beyond. As an iOS developer, I collaborate with talented designers and engineers to create impactful mobile experiences.",
-  quote:
-    "It is the time you have wasted for your rose that makes your rose so important.",
-  images: {
-    team: "/portfolio/AppDev1.jpeg",
-    logo: "/portfolio/AppDev2.png",
-    banner: "/portfolio/AppDev3.png",
-  },
-};
 
 export function ChapterHeader() {
   return (
@@ -72,7 +57,6 @@ export function ChapterHeader() {
       </div>
 
       {/* ============ MAIN CONTENT - Organic layout ============ */}
-      {/* Mobile: 600px, Desktop: 500px */}
       <div className="relative mx-auto min-h-[600px] max-w-6xl md:min-h-[500px]">
         {/* ============ LOGO - Floating left ============ */}
         <motion.div
@@ -82,19 +66,15 @@ export function ChapterHeader() {
           className="absolute top-0 left-[5%] z-20 md:left-[10%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative h-20 w-20 md:h-24 md:w-24">
-              <Image
-                src={APPDEV_DATA.images.logo}
-                alt="AppDev Logo"
-                fill
-                className="rounded-xl object-contain"
-              />
-            </div>
+            <img
+              src={APPDEV_DATA.images.logo}
+              alt="AppDev Logo"
+              className="h-20 w-20 rounded-xl object-contain md:h-24 md:w-24"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ BANNER - Offset to right of logo ============ */}
-        {/* Mobile: top-[10px], Desktop: top-[10px] */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -102,19 +82,15 @@ export function ChapterHeader() {
           className="absolute top-[10px] right-[5%] left-[25%] z-10 md:right-[10%] md:left-[22%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative h-20 w-full md:h-30">
-              <Image
-                src={APPDEV_DATA.images.banner}
-                alt="Cornell AppDev Banner"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={APPDEV_DATA.images.banner}
+              alt="Cornell AppDev Banner"
+              className="h-20 w-full rounded-xl object-cover md:h-30"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ TEXT CARD - Bottom left, floating ============ */}
-        {/* Mobile: top-[120px], Desktop: top-[150px] (ratio: 0.8) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +111,6 @@ export function ChapterHeader() {
         </motion.div>
 
         {/* ============ TEAM PHOTO - Right side, large ============ */}
-        {/* Mobile: top-[100px], Desktop: top-[130px] (ratio: 0.77) */}
         <motion.div
           initial={{ opacity: 0, x: 30, rotate: 2 }}
           whileInView={{ opacity: 1, x: 0, rotate: 1 }}
@@ -143,14 +118,11 @@ export function ChapterHeader() {
           className="absolute top-[100px] right-[0] z-20 w-[55%] md:top-[130px] md:right-[5%] md:w-[50%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={APPDEV_DATA.images.team}
-                alt="AppDev Team"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={APPDEV_DATA.images.team}
+              alt="AppDev Team"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
 

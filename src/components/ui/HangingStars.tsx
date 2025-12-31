@@ -3,9 +3,8 @@
 import { motion, useTransform, useMotionValue } from "framer-motion";
 import { useEffect } from "react";
 import { HangingStar } from "./HangingStar";
-import { HANGING_STARS } from "@/constants/stars";
-import { useLoading } from "@/context/LoadingContext";
-import { useScroll } from "@/context/ScrollContext";
+import { HANGING_STARS } from "@/constants";
+import { useLoading, useScroll } from "@/context";
 
 export function HangingStars() {
   const { isLoaded } = useLoading();

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   GlowFrame,
   ProjectTitle,
@@ -23,6 +22,7 @@ const IMAGES = {
   logo: "/portfolio/Millennium5.png",
 };
 
+// Floating stat card component
 function StatCard({
   number,
   label,
@@ -55,7 +55,6 @@ export function MillenniumProject() {
       <ProjectTitle name="Millennium" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      {/* Mobile: 950px, Desktop: 900px */}
       <div className="relative mx-auto min-h-[950px] max-w-6xl md:min-h-[900px]">
         {/* ============ HERO BANNER - Top, spans most width ============ */}
         <motion.div
@@ -65,19 +64,15 @@ export function MillenniumProject() {
           className="absolute top-0 right-[5%] left-[5%] z-10 md:right-[10%] md:left-[10%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-video w-full">
-              <Image
-                src={IMAGES.bannerHero}
-                alt="Millennium hero"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={IMAGES.bannerHero}
+              alt="Millennium hero"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ LOGO - Floating left side ============ */}
-        {/* Mobile: top-[200px], Desktop: top-[180px] (ratio: 1.11) */}
         <motion.div
           initial={{ opacity: 0, x: -20, rotate: -10 }}
           whileInView={{ opacity: 1, x: 0, rotate: 0 }}
@@ -85,19 +80,15 @@ export function MillenniumProject() {
           className="absolute top-[200px] left-[0] z-30 md:top-[180px] md:left-[2%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative h-24 w-24 md:h-32 md:w-32">
-              <Image
-                src={IMAGES.logo}
-                alt="Millennium logo"
-                fill
-                className="rounded-xl object-contain"
-              />
-            </div>
+            <img
+              src={IMAGES.logo}
+              alt="Millennium logo"
+              className="h-24 w-24 rounded-xl object-contain md:h-32 md:w-32"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ TEAM PHOTO - Large, offset right ============ */}
-        {/* Mobile: top-[320px], Desktop: top-[350px] (ratio: 0.91) */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -105,19 +96,15 @@ export function MillenniumProject() {
           className="absolute top-[320px] right-[0] z-20 w-[75%] md:top-[350px] md:right-[5%] md:w-[65%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative aspect-video w-full">
-              <Image
-                src={IMAGES.team}
-                alt="Millennium team"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
+            <img
+              src={IMAGES.team}
+              alt="Millennium team"
+              className="w-full rounded-xl object-cover"
+            />
           </GlowFrame>
         </motion.div>
 
         {/* ============ STAT CARDS - Scattered ============ */}
-        {/* Mobile: top-[180px], Desktop: top-[160px] (ratio: 1.125) */}
         <StatCard
           number="500+"
           label="Predictions"
@@ -126,7 +113,6 @@ export function MillenniumProject() {
         />
 
         {/* ============ SCREENSHOTS - Diagonal cascade down the left ============ */}
-        {/* Mobile: top-[340px], Desktop: top-[380px] (ratio: 0.89) */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: -8 }}
           whileInView={{ opacity: 1, y: 0, rotate: -5 }}
@@ -141,7 +127,6 @@ export function MillenniumProject() {
           />
         </motion.div>
 
-        {/* Mobile: top-[420px], Desktop: top-[470px] (ratio: 0.89) */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: 3 }}
           whileInView={{ opacity: 1, y: 0, rotate: 2 }}
@@ -156,7 +141,6 @@ export function MillenniumProject() {
           />
         </motion.div>
 
-        {/* Mobile: top-[500px], Desktop: top-[560px] (ratio: 0.89) */}
         <motion.div
           initial={{ opacity: 0, y: 20, rotate: -2 }}
           whileInView={{ opacity: 1, y: 0, rotate: -3 }}
@@ -172,12 +156,11 @@ export function MillenniumProject() {
         </motion.div>
 
         {/* ============ TEXT CARD - Bottom right, floating ============ */}
-        {/* Mobile: top-[680px], Desktop: top-[740px] (ratio: 0.92) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute top-[680px] right-[5%] z-30 max-w-[320px] md:top-[740px] md:right-[8%] md:max-w-[380px]"
+          className="absolute top-[560px] right-[5%] z-30 max-w-[320px] md:top-[740px] md:right-[8%] md:max-w-[380px]"
         >
           <div className="rounded-2xl border border-blue-500/20 bg-slate-900/90 p-6 shadow-2xl shadow-blue-500/10 backdrop-blur-lg">
             <p
@@ -239,7 +222,6 @@ export function MillenniumProject() {
         />
 
         {/* Diagonal line accent */}
-        {/* Mobile: top-[750px], Desktop: top-[700px] */}
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}

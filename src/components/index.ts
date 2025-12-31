@@ -1,18 +1,14 @@
 // Scene components
-export { Scene } from "./scene/Scene";
-export { StarField } from "./scene/Stars";
+export { Scene, StarField } from "./scene";
 
 // Model components
-export { Moon } from "./models/Moon";
-export { Character } from "./models/Character";
-export { Fox } from "./models/Fox";
-export { Rose } from "./models/Rose";
-export { PlanetObject } from "./models/PlanetObject";
+export { Moon, Character, Fox, Rose, PlanetObject } from "./models";
 
 // UI components
-export { HangingStars } from "./ui/HangingStars";
-export { HangingStar } from "./ui/HangingStar";
-export { TitleSection } from "./ui/TitleSection";
-export { ScrollIndicator } from "./ui/ScrollIndicator";
-export { LoadingScreen } from "./ui/LoadingScreen";
-export { Portfolio } from "./ui/Portfolio";
+export {
+  HangingStars,
+  HangingStar,
+  TitleSection,
+  ScrollIndicator,
+  LoadingScreen,
+} from "./ui";
