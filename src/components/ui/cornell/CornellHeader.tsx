@@ -9,7 +9,7 @@ const ACCENT = "#B31B1B"; // Cornell red
 const DATA = {
   subtitle: "Chapter III",
   title: "Cornell University",
-  role: "Student",
+  role: "Computer Science Student",
   description: `Lost in the Ithaca gorges, found in the library. From class projects to research, view my work at Cornell...`,
   quote: `You see, one loves the sunset when one is so sad.`,
   images: {

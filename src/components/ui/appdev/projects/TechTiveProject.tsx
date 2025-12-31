@@ -9,51 +9,18 @@ import {
   Screenshot,
   ProjectWrapper,
 } from "../../ProjectComponents";
+import { StatCard } from "@/components/ui/StatCard";
 
 const ACCENT = "#F97316";
 
 const IMAGES = {
   bannerHero: "/portfolio/TechTive1.png",
   bannerWide: "/portfolio/TechTive2.png",
-  // 3 & 4 are long/tall screenshots, 5 & 6 are standard phone size
   screenshotsLong: ["/portfolio/TechTive3.png", "/portfolio/TechTive4.png"],
   screenshotsStandard: ["/portfolio/TechTive5.png", "/portfolio/TechTive6.png"],
   logo: "/portfolio/TechTive7.png",
 };
 
-function StatCard({
-  number,
-  label,
-  className,
-  delay = 0,
-}: {
-  number: string;
-  label: string;
-  className?: string;
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay }}
-      // Use 'w-fit' so it doesn't stretch, and 'px-3 py-2' for tighter padding
-      className={`z-50 rounded-xl border border-orange-500/20 bg-slate-900/80 px-4 py-2 shadow-xl backdrop-blur-md ${className}`}
-    >
-      {/* Make the "Winner" part smaller and uppercase */}
-      <p
-        className="text-[20px] leading-tight font-bold"
-        style={{ color: ACCENT }}
-      >
-        {number}
-      </p>
-      {/* Make the "Best Overall" part a subtle sub-text */}
-      <p className="text-[12px] font-medium text-slate-400 opacity-80">
-        {label}
-      </p>
-    </motion.div>
-  );
-}
 export function TechTiveProject() {
   return (
     <ProjectWrapper>
@@ -65,10 +32,11 @@ export function TechTiveProject() {
         <StatCard
           number="Hackathon"
           label="Winner"
-          // Add 'z-50' to the className to force it to the front
+          accent={ACCENT}
           className="absolute top-[20px] right-[2%] z-50 md:top-[-40px]"
           delay={0.6}
         />
+
         {/* ============ HERO BANNER - Large, centered at top ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -77,12 +45,11 @@ export function TechTiveProject() {
           className="absolute top-0 right-[5%] left-[5%] z-10 md:right-[8%] md:left-[8%]"
         >
           <GlowFrame accent={ACCENT}>
-            {/* We use 'relative' and 'w-full' to let the motion.div control the width */}
             <div className="relative w-full overflow-hidden rounded-xl">
               <Image
                 src={IMAGES.bannerHero}
                 alt="TechTive hero"
-                width={1200} // Provide base dimensions
+                width={1200}
                 height={600}
                 className="w-full object-cover"
               />
@@ -98,7 +65,6 @@ export function TechTiveProject() {
           className="absolute top-[10px] left-[0] z-20 md:top-[20px] md:left-[1%]"
         >
           <GlowFrame accent={ACCENT}>
-            {/* Restored your exact h-24/w-24 classes */}
             <div className="relative h-24 w-24 md:h-32 md:w-32">
               <Image
                 src={IMAGES.logo}
@@ -121,11 +87,8 @@ export function TechTiveProject() {
             <Image
               src={IMAGES.bannerWide}
               alt="TechTive banner"
-              // These dimensions act as the aspect ratio base
               width={1200}
               height={400}
-              // w-full ensures it stretches to the motion.div width
-              // h-auto ensures it scales proportionately
               className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
@@ -217,7 +180,6 @@ export function TechTiveProject() {
         </motion.div>
 
         {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Warm glow behind banners */}
         <div
           className="pointer-events-none absolute top-[150px] left-[20%] z-0 h-[300px] w-[300px] rounded-full opacity-15 blur-[120px]"
           style={{
@@ -225,7 +187,6 @@ export function TechTiveProject() {
           }}
         />
 
-        {/* Floating accent dots */}
         <motion.div
           animate={{
             y: [0, -12, 0],
@@ -254,7 +215,6 @@ export function TechTiveProject() {
           style={{ backgroundColor: ACCENT }}
         />
 
-        {/* Corner bracket accents */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.4 }}

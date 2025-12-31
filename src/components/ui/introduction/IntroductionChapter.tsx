@@ -8,7 +8,7 @@ const ACCENT = "#FFD700";
 const DATA = {
   subtitle: "Chapter I",
   title: "Introduction",
-  content: `Hello! I'm Jiwon. Right now, I'm a student at Cornell, but I like to think of myself as a digital craftsman. I spend my days (and many late nights!) building apps for my campus community and mentoring the next generation of developers. My favorite part of software engineering is when a user finds something I built truly helpful.`,
+  content: `Hello! I'm Jiwon, a Cornell student who spends most days (and too many nights) building apps for my campus and helping other developers grow. I care most about building thoughtful, practical software that makes a real difference.`,
   quote: `"What makes the desert beautiful is that somewhere it hides a well."`,
   image: "/portfolio/Beginning.jpeg",
   imageAlt: "A developer's first steps",

@@ -9,6 +9,7 @@ import {
   Screenshot,
   ProjectWrapper,
 } from "../../ProjectComponents";
+import { StatCard } from "@/components/ui/StatCard";
 
 const ACCENT = "#3B82F6";
 
@@ -23,37 +24,10 @@ const IMAGES = {
   logo: "/portfolio/Millennium5.png",
 };
 
-// Floating stat card component
-function StatCard({
-  number,
-  label,
-  className,
-  delay = 0,
-}: {
-  number: string;
-  label: string;
-  className?: string;
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay }}
-      className={`rounded-2xl border border-blue-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md ${className}`}
-    >
-      <p className="text-2xl font-bold" style={{ color: ACCENT }}>
-        {number}
-      </p>
-      <p className="text-xs text-slate-400">{label}</p>
-    </motion.div>
-  );
-}
-
 export function MillenniumProject() {
   return (
     <ProjectWrapper>
-      <ProjectTitle name="Millennium" accent={ACCENT} />
+      <ProjectTitle name="All In" accent={ACCENT} />
 
       {/* Main creative canvas */}
       <div className="relative mx-auto min-h-[950px] max-w-6xl md:min-h-[880px]">
@@ -68,10 +42,10 @@ export function MillenniumProject() {
             <Image
               src={IMAGES.bannerHero}
               alt="Millennium hero"
-              width={1200} // Base aspect ratio width
-              height={600} // Base aspect ratio height
+              width={1200}
+              height={600}
               className="h-auto w-full rounded-xl object-cover"
-              priority // High priority as it's the hero image
+              priority
             />
           </GlowFrame>
         </motion.div>
@@ -84,7 +58,6 @@ export function MillenniumProject() {
           className="absolute top-[200px] left-[0] z-30 md:top-[180px] md:left-[2%]"
         >
           <GlowFrame accent={ACCENT}>
-            {/* The wrapper div now carries your exact responsive dimensions */}
             <div className="relative h-24 w-24 md:h-32 md:w-32">
               <Image
                 src={IMAGES.logo}
@@ -120,6 +93,7 @@ export function MillenniumProject() {
         <StatCard
           number="500+"
           label="Predictions"
+          accent={ACCENT}
           className="absolute top-[180px] right-[2%] z-40 md:top-[160px] md:right-[3%]"
           delay={0.4}
         />
@@ -196,7 +170,6 @@ export function MillenniumProject() {
         </motion.div>
 
         {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Glowing orb behind hero */}
         <div
           className="pointer-events-none absolute top-[50px] left-1/2 z-0 h-[200px] w-[400px] -translate-x-1/2 rounded-full opacity-20 blur-[100px]"
           style={{
@@ -204,7 +177,6 @@ export function MillenniumProject() {
           }}
         />
 
-        {/* Floating particles */}
         <motion.div
           animate={{
             y: [0, -15, 0],
@@ -233,7 +205,6 @@ export function MillenniumProject() {
           style={{ backgroundColor: ACCENT }}
         />
 
-        {/* Diagonal line accent */}
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
@@ -244,7 +215,6 @@ export function MillenniumProject() {
           }}
         />
 
-        {/* Corner accent marks */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.3 }}

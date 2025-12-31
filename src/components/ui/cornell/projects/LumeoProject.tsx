@@ -9,23 +9,21 @@ import {
   Screenshot,
   ProjectWrapper,
 } from "@/components/ui/ProjectComponents";
+import { StatCard } from "@/components/ui/StatCard";
 
-const ACCENT = "#22C55E"; // Green for health/environmental theme
+const ACCENT = "#22C55E";
 
 const IMAGES = {
   paper: "/portfolio/Lumeo1.png",
   screenshots: [
-    "/portfolio/Lumeo2.png", // Login
-    "/portfolio/Lumeo3.png", // Map dark with route
-    "/portfolio/Lumeo4.png", // Map green AQ
+    "/portfolio/Lumeo2.png",
+    "/portfolio/Lumeo3.png",
+    "/portfolio/Lumeo4.png",
   ],
-  shapefiles: [
-    "/portfolio/Lumeo7.jpg", // SF shapefile
-    "/portfolio/Lumeo8.jpg", // Philly shapefile
-  ],
-  logoBackground: "/portfolio/Lumeo10.jpg", // City background
-  logoOverlay: "/portfolio/Lumeo9.png", // UTECH logo (transparent)
-  logo: "/portfolio/Lumeo11.png", // UTECH logo standalone
+  shapefiles: ["/portfolio/Lumeo7.jpg", "/portfolio/Lumeo8.jpg"],
+  logoBackground: "/portfolio/Lumeo10.jpg",
+  logoOverlay: "/portfolio/Lumeo9.png",
+  logo: "/portfolio/Lumeo11.png",
   watches: ["/portfolio/Lumeo14.avif", "/portfolio/Lumeo15.avif"],
 };
 
@@ -45,14 +43,12 @@ export function LumeoProject() {
         >
           <GlowFrame accent={ACCENT}>
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
-              {/* City background */}
               <Image
                 src={IMAGES.logoBackground}
                 alt="City background"
                 fill
                 className="object-cover"
               />
-              {/* UTECH logo overlay centered */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative h-[40%] w-[60%]">
                   <Image
@@ -75,12 +71,12 @@ export function LumeoProject() {
           className="absolute top-[20px] left-[0] z-20 md:top-[30px] md:left-[2%]"
         >
           <GlowFrame accent={ACCENT}>
-            <div className="relative h-16 w-16 md:h-20 md:w-20">
+            <div className="relative h-20 w-20 md:h-28 md:w-28">
               <Image
                 src={IMAGES.logo}
                 alt="UTECH logo"
                 fill
-                className="rounded-xl object-contain"
+                className="scale-150 rounded-xl object-contain"
               />
             </div>
           </GlowFrame>
@@ -157,33 +153,21 @@ export function LumeoProject() {
         </motion.div>
 
         {/* ============ STAT CARDS ============ */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        <StatCard
+          number="50"
+          label="Cities Supported"
+          accent={ACCENT}
           className="absolute top-[520px] right-[5%] z-30 md:top-[570px] md:right-[70%]"
-        >
-          <div className="rounded-2xl border border-green-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md">
-            <p className="text-2xl font-bold" style={{ color: ACCENT }}>
-              50
-            </p>
-            <p className="text-xs text-slate-400">Cities Supported</p>
-          </div>
-        </motion.div>
+          delay={0.4}
+        />
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+        <StatCard
+          number="5+"
+          label="Health Factors"
+          accent={ACCENT}
           className="absolute top-[600px] right-[18%] z-30 md:top-[580px] md:right-[85%]"
-        >
-          <div className="rounded-2xl border border-green-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md">
-            <p className="text-2xl font-bold" style={{ color: ACCENT }}>
-              5+
-            </p>
-            <p className="text-xs text-slate-400">Health Factors</p>
-          </div>
-        </motion.div>
+          delay={0.5}
+        />
 
         {/* ============ SHAPEFILES - Overlapping maps ============ */}
         <motion.div
@@ -286,7 +270,6 @@ export function LumeoProject() {
         </motion.div>
 
         {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Green glow */}
         <div
           className="pointer-events-none absolute top-[100px] left-[30%] z-0 h-[300px] w-[300px] rounded-full opacity-15 blur-[120px]"
           style={{
@@ -300,7 +283,6 @@ export function LumeoProject() {
           }}
         />
 
-        {/* Floating particles */}
         <motion.div
           animate={{
             y: [0, -12, 0],

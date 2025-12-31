@@ -9,6 +9,7 @@ import {
   Screenshot,
   ProjectWrapper,
 } from "../../ProjectComponents";
+import { StatCard } from "@/components/ui/StatCard";
 
 const ACCENT = "#FACC15";
 
@@ -25,33 +26,6 @@ const IMAGES = {
   ],
 };
 
-// Floating stat card component
-function StatCard({
-  number,
-  label,
-  className,
-  delay = 0,
-}: {
-  number: string;
-  label: string;
-  className?: string;
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.9 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, delay }}
-      className={`rounded-2xl border border-white/10 bg-slate-900/80 px-5 py-4 backdrop-blur-md ${className}`}
-    >
-      <p className="text-3xl font-bold" style={{ color: ACCENT }}>
-        {number}
-      </p>
-      <p className="text-sm text-slate-400">{label}</p>
-    </motion.div>
-  );
-}
-
 export function UpliftProject() {
   return (
     <ProjectWrapper>
@@ -59,7 +33,6 @@ export function UpliftProject() {
 
       {/* Main creative canvas - relative container for absolute positioning */}
       <div className="relative mx-auto min-h-[1200px] max-w-6xl md:min-h-[850px]">
-        {" "}
         {/* ============ HERO BANNER - Large, offset to right ============ */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -71,7 +44,6 @@ export function UpliftProject() {
             <Image
               src={IMAGES.bannerHero}
               alt="Uplift hero"
-              // Use large base dimensions; w-full h-auto handles the scaling
               width={1200}
               height={800}
               className="h-auto w-full rounded-xl object-cover"
@@ -79,6 +51,7 @@ export function UpliftProject() {
             />
           </GlowFrame>
         </motion.div>
+
         {/* ============ LOGO - Floating top left, overlapping ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
@@ -87,7 +60,6 @@ export function UpliftProject() {
           className="absolute top-[20px] left-0 z-20 md:top-[40px]"
         >
           <GlowFrame accent={ACCENT}>
-            {/* The wrapper div preserves your exact responsive sizing */}
             <div className="relative h-24 w-24 md:h-32 md:w-32">
               <Image
                 src={IMAGES.logo}
@@ -98,7 +70,8 @@ export function UpliftProject() {
             </div>
           </GlowFrame>
         </motion.div>
-        {/* ============ TAGLINE CARD - Floating, angled ============ */}
+
+        {/* ============ TAGLINE CARD ============ */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -124,21 +97,26 @@ export function UpliftProject() {
             </div>
           </div>
         </motion.div>
+
         {/* ============ STAT CARDS - Scattered around ============ */}
         <StatCard
           number="5+"
           label="Campus Gyms"
+          accent={ACCENT}
+          size="large"
           className="absolute top-[60px] right-[5%] z-30 md:top-[20px] md:right-[5%]"
           delay={0.4}
         />
         <StatCard
           number="1000+"
           label="Active Users"
+          accent={ACCENT}
+          size="large"
           className="absolute top-[350px] right-[0] z-30 md:top-[280px] md:right-[2%]"
           delay={0.5}
         />
+
         {/* ============ SCREENSHOTS - Fanned out arrangement ============ */}
-        {/* Screenshot 1 - leftmost, tilted left */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: -15 }}
           whileInView={{ opacity: 1, y: 0, rotate: -12 }}
@@ -152,7 +130,7 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-        {/* Screenshot 2 - Adjusted top from 370 to 470 */}
+
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: -8 }}
           whileInView={{ opacity: 1, y: 0, rotate: -5 }}
@@ -166,7 +144,7 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-        {/* Screenshot 3 - Adjusted top from 365 to 465 */}
+
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: 5 }}
           whileInView={{ opacity: 1, y: 0, rotate: 3 }}
@@ -180,7 +158,7 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
-        {/* Screenshot 4 - Adjusted top from 375 to 475 */}
+
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: 12 }}
           whileInView={{ opacity: 1, y: 0, rotate: 10 }}
@@ -194,6 +172,7 @@ export function UpliftProject() {
             delay={0}
           />
         </motion.div>
+
         {/* ============ WIDE BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -211,6 +190,7 @@ export function UpliftProject() {
             />
           </GlowFrame>
         </motion.div>
+
         {/* ============ TEAM PHOTO ============ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -236,8 +216,8 @@ export function UpliftProject() {
             The team behind Uplift
           </motion.p>
         </motion.div>
+
         {/* ============ DECORATIVE ELEMENTS ============ */}
-        {/* Floating accent dots */}
         <motion.div
           animate={{
             y: [0, -10, 0],
@@ -265,6 +245,7 @@ export function UpliftProject() {
           className="absolute top-[150px] right-[60%] z-5 h-2 w-2 rounded-full"
           style={{ backgroundColor: ACCENT }}
         />
+
         {/* Grid lines for that tech feel */}
         <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.03]">
           <div

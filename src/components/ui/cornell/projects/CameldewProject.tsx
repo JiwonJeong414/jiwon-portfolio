@@ -8,8 +8,9 @@ import {
   TechTags,
   ProjectWrapper,
 } from "@/components/ui/ProjectComponents";
+import { StatCard } from "@/components/ui/StatCard";
 
-const ACCENT = "#F97316"; // Warm orange to match the camel logo
+const ACCENT = "#F97316";
 
 const IMAGES = {
   titleScreen: "/portfolio/Cameldew1.png",
@@ -123,7 +124,7 @@ export function CameldewProject() {
                 src={IMAGES.video}
                 alt="Gameplay Demo"
                 fill
-                unoptimized // Critical for GIFs to play correctly in Next.js
+                unoptimized
                 className="object-cover"
                 style={{ imageRendering: "pixelated" }}
               />
@@ -135,33 +136,21 @@ export function CameldewProject() {
         </motion.div>
 
         {/* ============ STAT CARDS ============ */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        <StatCard
+          number="5"
+          label="Crop Types"
+          accent={ACCENT}
           className="absolute top-[250px] right-[55%] z-30 md:top-[280px] md:right-[58%]"
-        >
-          <div className="rounded-2xl border border-orange-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md">
-            <p className="text-2xl font-bold" style={{ color: ACCENT }}>
-              5
-            </p>
-            <p className="text-xs text-slate-400">Crop Types</p>
-          </div>
-        </motion.div>
+          delay={0.4}
+        />
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+        <StatCard
+          number="100%"
+          label="Functional"
+          accent={ACCENT}
           className="absolute top-[580px] left-[3%] z-30 md:top-[520px] md:left-[7%]"
-        >
-          <div className="rounded-2xl border border-orange-500/20 bg-slate-900/80 px-4 py-3 backdrop-blur-md">
-            <p className="text-2xl font-bold" style={{ color: ACCENT }}>
-              100%
-            </p>
-            <p className="text-xs text-slate-400">Functional</p>
-          </div>
-        </motion.div>
+          delay={0.5}
+        />
 
         {/* ============ DECORATIVE ELEMENTS ============ */}
         <div
@@ -177,7 +166,6 @@ export function CameldewProject() {
           }}
         />
 
-        {/* Floating particles */}
         <motion.div
           animate={{ y: [0, -8, 0], opacity: [0.4, 0.8, 0.4] }}
           transition={{ duration: 2.5, repeat: Infinity }}
@@ -197,7 +185,6 @@ export function CameldewProject() {
           style={{ backgroundColor: ACCENT }}
         />
 
-        {/* Pixel-style corner decorations */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.3 }}

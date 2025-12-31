@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { IntroductionChapter } from "./chapters/IntroductionChapter";
+import { IntroductionChapter } from "./introduction/IntroductionChapter";
 import { AppDevChapter } from "./appdev/AppDevChapter";
 import { CornellChapter } from "./cornell/CornellChapter";
 import Link from "next/link";
