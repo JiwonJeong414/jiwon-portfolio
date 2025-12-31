@@ -166,7 +166,6 @@ export function Portfolio() {
             className="mt-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
             <span className="text-4xl text-yellow-400/30">★</span>

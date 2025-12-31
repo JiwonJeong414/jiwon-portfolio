@@ -191,16 +191,11 @@ export function ChapterHeader() {
       </div>
 
       {/* ============ BOTTOM DIVIDER ============ */}
-      <motion.div
-        className="mx-auto mt-35 flex max-w-xs items-center justify-center gap-2"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-      >
+      <div className="mx-auto mt-35 flex max-w-xs items-center justify-center gap-2">
         <span className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-400/30 to-amber-400/50" />
         <span className="text-xs text-amber-400/40">✦</span>
         <span className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-400/30 to-amber-400/50" />
-      </motion.div>
+      </div>
     </motion.header>
   );
 }

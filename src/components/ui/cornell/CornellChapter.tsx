@@ -15,7 +15,7 @@ export function CornellChapter() {
           className="mb-12 text-center text-sm tracking-[0.2em] text-slate-400 uppercase"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           Projects at Cornell
         </motion.p>

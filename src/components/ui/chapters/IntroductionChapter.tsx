@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const ACCENT = "#FFD700";
@@ -9,33 +8,21 @@ const ACCENT = "#FFD700";
 const DATA = {
   subtitle: "Chapter I",
   title: "Introduction",
-  content: `Hello! I'm Jiwon, a student at Cornell who spends most days and many late nights! building apps for my campus community and mentoring the next generation of developers. I care most about building thoughtful, practical software that makes a real difference.`,
+  content: `Hello! I'm Jiwon. Right now, I'm a student at Cornell, but I like to think of myself as a digital craftsman. I spend my days (and many late nights!) building apps for my campus community and mentoring the next generation of developers. My favorite part of software engineering is when a user finds something I built truly helpful.`,
   quote: `"What makes the desert beautiful is that somewhere it hides a well."`,
   image: "/portfolio/Beginning.jpeg",
   imageAlt: "A developer's first steps",
 };
 
 export function IntroductionChapter() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, {
-    once: false, // Allow re-triggering
-    amount: 0.05, // Trigger when 5% is visible
-  });
-
   return (
-    <motion.article
-      ref={sectionRef}
-      className="relative"
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.8 }}
-    >
+    <motion.article className="relative">
       {/* Chapter label */}
       <motion.div
         className="mb-8 text-center"
         initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
       >
         <span
           className="font-serif text-sm tracking-[0.3em] uppercase"
@@ -62,11 +49,7 @@ export function IntroductionChapter() {
         <motion.div
           className="absolute top-0 left-0 z-10 w-[70%] md:w-[45%]"
           initial={{ opacity: 0, x: -40, rotate: -3 }}
-          animate={
-            isInView
-              ? { opacity: 1, x: 0, rotate: -2 }
-              : { opacity: 0, x: -40, rotate: -3 }
-          }
+          whileInView={{ opacity: 1, x: 0, rotate: -2 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <div className="relative">
@@ -119,11 +102,7 @@ export function IntroductionChapter() {
         <motion.div
           className="absolute top-[20px] right-0 z-20 w-[75%] md:top-[40px] md:right-[5%] md:w-[55%]"
           initial={{ opacity: 0, x: 40, rotate: 1 }}
-          animate={
-            isInView
-              ? { opacity: 1, x: 0, rotate: 0.5 }
-              : { opacity: 0, x: 40, rotate: 1 }
-          }
+          whileInView={{ opacity: 1, x: 0, rotate: 0.5 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
           <div className="rounded-2xl border border-amber-500/20 bg-slate-900/90 p-6 shadow-2xl shadow-amber-500/10 backdrop-blur-lg md:p-8">
@@ -161,8 +140,8 @@ export function IntroductionChapter() {
       {/* Connector line to next section */}
       <motion.div
         className="mx-auto mt-12 h-12 w-px"
-        initial={{ scaleY: 0, y: 80 }}
-        animate={isInView ? { scaleY: 1, y: 100 } : { scaleY: 0, y: 80 }}
+        initial={{ scaleY: 0, y: 80 }} // Starts 40px lower
+        whileInView={{ scaleY: 1, y: 100 }} // Ends 60px lower
         transition={{ duration: 0.6, delay: 0.8 }}
         style={{
           background: `linear-gradient(to bottom, ${ACCENT}40, transparent)`,

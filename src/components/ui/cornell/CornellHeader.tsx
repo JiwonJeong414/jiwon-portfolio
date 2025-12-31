@@ -77,9 +77,6 @@ export function CornellHeader() {
         <motion.div
           initial={{ opacity: 0, x: -30, rotate: -2 }}
           whileInView={{ opacity: 1, x: 0, rotate: -1 }}
-          // Wait until a tiny bit is visible (0.1) and use a slightly
-          // longer duration (0.8) for a smoother, high-end feel.
-          viewport={{ once: true, amount: 0.1 }}
           transition={{
             duration: 0.8,
             delay: 0.2,
