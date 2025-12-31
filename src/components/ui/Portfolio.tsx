@@ -2,28 +2,20 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
+import { AppDevChapter } from "./appdev";
 
 // Portfolio story data - each "chapter" of your journey
 const portfolioStories = [
   {
     id: 1,
-    title: "The Beginning",
+    title: "Introduction",
     subtitle: "Chapter I",
-    content: `Once upon a time, in a small room filled with the soft glow of monitors, a young developer discovered the magic of creating worlds from nothing but code. Each line was a brushstroke, each function a spell that brought ideas to life.`,
+    content: `Hello! I'm Jiwon. Right now, I'm a student at Cornell, but I like to think of myself as a digital craftsman. I spend my days (and many late nights!) building apps for my campus community and mentoring the next generation of developers. My favorite part of software engineering is when a user finds something I built truly helpful.`,
     quote: `"What makes the desert beautiful is that somewhere it hides a well."`,
-    image: "/portfolio/beginning.png",
+    image: "/portfolio/beginning.jpeg",
     imageAlt: "A developer's first steps",
     accent: "#FFD700",
-  },
-  {
-    id: 2,
-    title: "The Craft",
-    subtitle: "Chapter II",
-    content: `Like the little prince tending to his rose, I learned that true craftsmanship requires patience and care. Every pixel matters. Every interaction tells a story. The websites I build are gardens I tend with dedication.`,
-    quote: `"It is the time you have wasted for your rose that makes your rose so important."`,
-    image: "/portfolio/craft.png",
-    imageAlt: "Crafting beautiful interfaces",
-    accent: "#E8B4B8",
   },
   {
     id: 3,
@@ -31,7 +23,7 @@ const portfolioStories = [
     subtitle: "Chapter III",
     content: `From asteroid to asteroid, project to project, I traveled through technologies and frameworks. React became my compass, TypeScript my map. Each new world taught me something essential about the art of building.`,
     quote: `"One sees clearly only with the heart. What is essential is invisible to the eye."`,
-    image: "/portfolio/journey.png",
+    image: "/portfolio/beginning.jpeg",
     imageAlt: "Journey through projects",
     accent: "#87CEEB",
   },
@@ -41,7 +33,7 @@ const portfolioStories = [
     subtitle: "Chapter IV",
     content: `Now I create experiences that feel like stories—interfaces that guide, delight, and inspire. Each project is a new planet to explore, a new rose to nurture, a new friend to make along the way.`,
     quote: `"All grown-ups were once children... but only few of them remember it."`,
-    image: "/portfolio/creations.png",
+    image: "/portfolio/beginning.jpeg",
     imageAlt: "Portfolio of creations",
     accent: "#98D8AA",
   },
@@ -109,26 +101,13 @@ function StoryCard({ story, index }: StoryCardProps) {
             {/* Main image container */}
             <div className="relative overflow-hidden rounded-lg border-4 border-amber-100/30 bg-amber-50/10 p-4 shadow-xl backdrop-blur-sm">
               {/* Placeholder illustration - replace with actual images */}
-              <div className="flex aspect-[4/5] items-center justify-center rounded bg-gradient-to-br from-amber-50/20 to-amber-100/10">
-                <div className="text-center">
-                  <motion.div
-                    className="mb-4 text-6xl"
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    {index === 0 && "🌟"}
-                    {index === 1 && "🌹"}
-                    {index === 2 && "🚀"}
-                    {index === 3 && "✨"}
-                  </motion.div>
-                  <p className="font-serif text-sm text-amber-200/60 italic">
-                    {story.imageAlt}
-                  </p>
-                </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded">
+                <Image
+                  src={story.image}
+                  alt={story.imageAlt}
+                  fill
+                  className="object-cover"
+                />
               </div>
 
               {/* Corner decorations */}
@@ -329,8 +308,15 @@ export function Portfolio() {
 
         {/* Story Cards */}
         <div className="relative">
-          {portfolioStories.map((story, index) => (
-            <StoryCard key={story.id} story={story} index={index} />
+          {/* Chapter I - Introduction */}
+          <StoryCard story={portfolioStories[0]} index={0} />
+
+          {/* Chapter II - AppDev (the new component!) */}
+          <AppDevChapter />
+
+          {/* Chapter III, IV, etc. */}
+          {portfolioStories.slice(1).map((story, index) => (
+            <StoryCard key={story.id} story={story} index={index + 2} />
           ))}
         </div>
 

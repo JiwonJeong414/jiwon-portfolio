@@ -109,8 +109,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Content */}
-        <div className="relative mx-auto max-w-4xl px-6 py-24">
+        {/* Content - WIDENED from max-w-4xl to max-w-6xl */}
+        <div className="relative mx-auto max-w-6xl px-6 py-24">
           <Portfolio />
         </div>
       </section>
