@@ -10,8 +10,8 @@ const DATA = {
   subtitle: "Chapter III",
   title: "Cornell University",
   role: "Student",
-  description: `I am part of various stuff in cornell including labs and stuff like that`,
-  quote: `happy`,
+  description: `Engaged in a diverse academic curriculum and hands-on laboratory research.`,
+  quote: `Dedicated to continuous learning.`,
   images: {
     logo: "/portfolio/Cornell1.png",
     logo2: "/portfolio/Cornell4.png",
