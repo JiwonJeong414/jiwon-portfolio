@@ -130,9 +130,14 @@ export function CameldewProject() {
               />
             </div>
           </GlowFrame>
-          <p className="mt-2 text-center text-xs text-slate-500 italic">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 text-center text-xs text-slate-500 italic"
+          >
             Gameplay Demo
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* ============ STAT CARDS ============ */}

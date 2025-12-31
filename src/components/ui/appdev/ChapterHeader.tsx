@@ -80,7 +80,6 @@ export function ChapterHeader() {
           className="absolute top-0 left-[5%] z-20 md:left-[10%]"
         >
           <GlowFrame accent={ACCENT}>
-            {/* Wrapper div matches your h-20 w-20 / h-24 w-24 original classes */}
             <div className="relative h-20 w-20 md:h-24 md:w-24">
               <Image
                 src={APPDEV_DATA.images.logo}
@@ -100,7 +99,6 @@ export function ChapterHeader() {
           className="absolute top-[10px] right-[5%] left-[25%] z-10 md:right-[10%] md:left-[22%]"
         >
           <GlowFrame accent={ACCENT}>
-            {/* Wrapper div matches your h-20 / h-30 original height classes */}
             <div className="relative h-20 w-full md:h-30">
               <Image
                 src={APPDEV_DATA.images.banner}
@@ -140,7 +138,6 @@ export function ChapterHeader() {
           className="absolute top-[100px] right-[0] z-20 w-[55%] md:top-[130px] md:right-[5%] md:w-[50%]"
         >
           <GlowFrame accent={ACCENT}>
-            {/* Using width/height here to let the w-full class scale it naturally */}
             <Image
               src={APPDEV_DATA.images.team}
               alt="AppDev Team"
@@ -149,6 +146,14 @@ export function ChapterHeader() {
               className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 text-center text-xs text-slate-500 italic"
+          >
+            The iOS Subteam
+          </motion.p>
         </motion.div>
 
         {/* ============ DECORATIVE ELEMENTS ============ */}

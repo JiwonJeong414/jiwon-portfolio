@@ -87,6 +87,14 @@ export function MillenniumProject() {
               />
             </div>
           </GlowFrame>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 text-xs text-slate-500 italic"
+          >
+            The team behind All In
+          </motion.p>
         </motion.div>
 
         {/* ============ STAT CARDS ============ */}

@@ -88,13 +88,19 @@ export function CornellHeader() {
             <Image
               src={DATA.images.photo}
               alt="Cornell"
-              // These dimensions define the aspect ratio (roughly 16:9)
               width={1200}
               height={675}
-              // h-auto w-full ensures it respects the parent's width classes
               className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 text-left text-xs text-slate-500 italic"
+          >
+            McGraw Tower at night
+          </motion.p>
         </motion.div>
 
         {/* ============ TEXT CARD - Right side ============ */}
@@ -119,9 +125,9 @@ export function CornellHeader() {
           </div>
         </motion.div>
 
-        {/* ============ LOGOS - Grouped & overlapping below text ============ */}
+        {/* ============ LOGOS ============ */}
         <div className="absolute top-[320px] right-[10%] z-30 md:top-[200px] md:right-[35%]">
-          {/* Logo 1 - Back left */}
+          {/* Logo 1 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             whileInView={{ opacity: 1, scale: 1, rotate: -8 }}
@@ -140,7 +146,7 @@ export function CornellHeader() {
             </GlowFrame>
           </motion.div>
 
-          {/* Logo 2 - Middle, slightly forward */}
+          {/* Logo 2 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, rotate: 3 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 2 }}
@@ -159,7 +165,7 @@ export function CornellHeader() {
             </GlowFrame>
           </motion.div>
 
-          {/* Logo 3 - Front right */}
+          {/* Logo 3 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
             whileInView={{ opacity: 1, scale: 1, rotate: -3 }}

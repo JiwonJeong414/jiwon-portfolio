@@ -92,6 +92,14 @@ export function TechTiveProject() {
               className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 pr-20 text-right text-xs text-slate-500 italic"
+          >
+            Available on App Store
+          </motion.p>
         </motion.div>
 
         {/* ============ STANDARD SCREENSHOTS ============ */}

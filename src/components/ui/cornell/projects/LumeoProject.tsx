@@ -186,9 +186,14 @@ export function LumeoProject() {
               />
             </div>
           </GlowFrame>
-          <p className="mt-2 text-center text-xs text-slate-500">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 text-center text-xs text-slate-500 italic"
+          >
             SF Road Network
-          </p>
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -207,9 +212,14 @@ export function LumeoProject() {
               />
             </div>
           </GlowFrame>
-          <p className="mt-2 text-center text-xs text-slate-500">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 text-center text-xs text-slate-500 italic"
+          >
             Philadelphia Road Network
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* ============ PAPER/RESEARCH ============ */}
@@ -229,9 +239,14 @@ export function LumeoProject() {
               />
             </div>
           </GlowFrame>
-          <p className="mt-2 text-center text-xs text-slate-500 italic">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-2 text-center text-xs text-slate-500 italic"
+          >
             Published Research Paper
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* ============ WATCHES ============ */}
