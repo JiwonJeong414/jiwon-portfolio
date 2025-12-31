@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { IntroductionChapter } from "./chapters/IntroductionChapter";
 import { AppDevChapter } from "./appdev/AppDevChapter";
 import { CornellChapter } from "./cornell/CornellChapter";
+import Link from "next/link";
 
 export function Portfolio() {
   return (
@@ -138,27 +139,41 @@ export function Portfolio() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <motion.button
-              className="group relative overflow-hidden rounded-full border-2 border-amber-400/50 bg-transparent px-8 py-3 font-medium text-amber-200 transition-all hover:border-amber-400 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)]"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <Link
+              href="https://github.com/jiwonjeong414/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block" // Ensures the link wrapper matches the button size
             >
-              <span className="relative z-10">View My Work</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.6 }}
-              />
-            </motion.button>
+              <motion.button
+                className="group relative overflow-hidden rounded-full border-2 border-amber-400/50 bg-transparent px-8 py-3 font-medium text-amber-200 transition-all hover:border-amber-400 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)]"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="relative z-10">Github ✦</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{ duration: 0.6 }}
+                />
+              </motion.button>
+            </Link>
 
-            <motion.button
-              className="group rounded-full bg-amber-400 px-8 py-3 font-medium text-slate-900 transition-all hover:bg-amber-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <Link
+              href="https://www.linkedin.com/in/jiwonjeong414"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
             >
-              Say Hello ✦
-            </motion.button>
+              <motion.button
+                className="group rounded-full bg-amber-400 px-8 py-3 font-medium text-slate-900 transition-all hover:bg-amber-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                LinkedIn ✦
+              </motion.button>
+            </Link>
           </div>
 
           {/* Final decorative element */}
