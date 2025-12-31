@@ -176,7 +176,7 @@ export function Portfolio() {
             </Link>
           </div>
 
-          {/* Final decorative element */}
+          {/* Final decorative element  */}
           <motion.div
             className="mt-16"
             initial={{ opacity: 0 }}
