@@ -8,8 +8,9 @@ const ACCENT = "#FFD700";
 const DATA = {
   subtitle: "Chapter I",
   title: "Introduction",
-  content: `Hello! I'm Jiwon, a Cornell student who spends most days (and too many nights) building apps for my campus and helping other developers grow. I care most about building thoughtful, practical software that makes a real difference.`,
-  quote: `"What makes the desert beautiful is that somewhere it hides a well."`,
+  content:
+    "Hello! I'm Jiwon, a Cornell student who spends most days (and too many nights) building apps for my campus and helping other developers grow. I care most about building thoughtful, practical software that makes a real difference.",
+  quote: "What makes the desert beautiful is that somewhere it hides a well.",
   image: "/portfolio/Beginning.jpeg",
   imageAlt: "A developer's first steps",
 };
