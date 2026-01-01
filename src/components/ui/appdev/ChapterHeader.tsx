@@ -29,7 +29,12 @@ export function ChapterHeader() {
       transition={{ duration: 0.8 }}
     >
       {/* ============ TITLE SECTION ============ */}
-      <div className="mb-8 text-center">
+      <motion.div
+        className="mb-8 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
         <motion.p
           className="mb-2 text-sm tracking-[0.3em] text-amber-400/80 uppercase"
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +73,7 @@ export function ChapterHeader() {
         >
           {APPDEV_DATA.role}
         </motion.p>
-      </div>
+      </motion.div>
 
       {/* ============ MAIN CONTENT ============ */}
       <div className="relative mx-auto min-h-[600px] max-w-6xl md:min-h-[500px]">

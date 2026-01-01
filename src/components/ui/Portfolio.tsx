@@ -10,13 +10,7 @@ export function Portfolio() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-900 via-[#0f1729] to-slate-900">
       {/* Subtle paper texture overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }}
-      />
-
+      <div className="pointer-events-none absolute inset-0 bg-[rgba(120,90,60,0.05)]" />
       {/* Floating decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
@@ -86,7 +80,7 @@ export function Portfolio() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Every great story begins with a single step. This is mine—a tale of
+            Every great story begins with a single step. This is mine, a tale of
             code, creativity, and the endless pursuit of building something
             beautiful.
           </motion.p>

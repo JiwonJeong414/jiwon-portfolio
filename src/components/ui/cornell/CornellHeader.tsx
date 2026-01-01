@@ -29,7 +29,12 @@ export function CornellHeader() {
       transition={{ duration: 0.8 }}
     >
       {/* Title section */}
-      <div className="mb-8 text-center">
+      <motion.div
+        className="mb-8 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
         <motion.p
           className="mb-2 text-sm tracking-[0.3em] uppercase"
           style={{ color: ACCENT }}
@@ -69,7 +74,7 @@ export function CornellHeader() {
         >
           {DATA.role}
         </motion.p>
-      </div>
+      </motion.div>
 
       {/* Main content - organic layout */}
       <div className="relative mx-auto min-h-[550px] max-w-6xl md:min-h-[350px]">
