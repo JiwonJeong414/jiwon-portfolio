@@ -6,6 +6,8 @@ import {
   GlowFrame,
   ProjectTitle,
   TechTags,
+  GitHubLink,
+  AppStoreLink,
   Screenshot,
   ProjectWrapper,
 } from "../../ProjectComponents";
@@ -185,6 +187,29 @@ export function TechTiveProject() {
               />
             </div>
           </div>
+        </motion.div>
+
+        {/* ============ GITHUB LINKS ============ */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="absolute top-[720px] left-[2%] z-30 flex flex-wrap items-end gap-3 md:top-[880px] md:left-[25%]"
+        >
+          <GitHubLink
+            href="https://github.com/JiwonJeong414/TechTive-iOS"
+            accent={ACCENT}
+            repoType="frontend (iOS)"
+          />
+          <GitHubLink
+            href="https://github.com/JiwonJeong414/TechTive-Backend"
+            accent={ACCENT}
+            repoType="backend"
+          />
+          <AppStoreLink
+            href="https://apps.apple.com/us/app/techtive/id6740716457"
+            accent={ACCENT}
+          />
         </motion.div>
 
         {/* ============ DECORATIVE ELEMENTS ============ */}

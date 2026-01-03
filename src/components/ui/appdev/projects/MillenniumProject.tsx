@@ -8,6 +8,7 @@ import {
   TechTags,
   Screenshot,
   ProjectWrapper,
+  GitHubLink,
 } from "../../ProjectComponents";
 import { StatCard } from "@/components/ui/StatCard";
 
@@ -30,7 +31,7 @@ export function MillenniumProject() {
       <ProjectTitle name="All In" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      <div className="relative mx-auto min-h-[950px] max-w-6xl md:min-h-[880px]">
+      <div className="relative mx-auto min-h-[950px] max-w-6xl md:min-h-[900px]">
         {/* ============ HERO BANNER ============ */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -146,6 +147,25 @@ export function MillenniumProject() {
             accent={ACCENT}
             width="100%"
             delay={0}
+          />
+        </motion.div>
+
+        {/* ============ GITHUB LINKS ============ */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="absolute top-[720px] left-[2%] z-30 flex flex-wrap items-end gap-3 md:top-[880px] md:left-[15%]"
+        >
+          <GitHubLink
+            href="https://github.com/cuappdev/all-in-ios-swiftui"
+            accent={ACCENT}
+            repoType="frontend (iOS)"
+          />
+          <GitHubLink
+            href="https://github.com/cuappdev/all-in-backend"
+            accent={ACCENT}
+            repoType="backend"
           />
         </motion.div>
 

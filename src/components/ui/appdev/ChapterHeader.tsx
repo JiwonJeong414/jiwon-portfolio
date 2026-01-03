@@ -8,9 +8,9 @@ const ACCENT = "#FFD700";
 export const APPDEV_DATA = {
   title: "Cornell AppDev",
   subtitle: "Chapter II",
-  role: "iOS Developer",
+  role: "iOS & Backend Developer",
   description:
-    "A project team at Cornell University dedicated to building apps that serve the Cornell community and beyond. As an iOS developer, I collaborate with talented designers and engineers to create impactful mobile experiences.",
+    "A project team at Cornell University dedicated to building apps that serve the Cornell community and beyond. As an iOS & Backend developer, I collaborate with talented designers and engineers to create impactful mobile experiences.",
   quote:
     "It is the time you have wasted for your rose that makes your rose so important.",
   images: {

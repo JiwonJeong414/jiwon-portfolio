@@ -5,6 +5,8 @@ import Image from "next/image";
 import {
   GlowFrame,
   ProjectTitle,
+  GitHubLink,
+  AppStoreLink,
   TechTags,
   ProjectWrapper,
 } from "@/components/ui/ProjectComponents";
@@ -25,7 +27,7 @@ export function CameldewProject() {
       <ProjectTitle name="Cameldew Valley" accent={ACCENT} />
 
       {/* Main creative canvas */}
-      <div className="relative mx-auto min-h-[900px] max-w-6xl md:min-h-[770px]">
+      <div className="relative mx-auto min-h-[900px] max-w-6xl md:min-h-[840px]">
         {/* ============ LOGO - Floating top left ============ */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
@@ -138,6 +140,18 @@ export function CameldewProject() {
           >
             Gameplay Demo
           </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="absolute top-[1000px] left-1/2 z-30 flex -translate-x-1/2 flex-wrap items-center gap-3 md:top-[990px]"
+        >
+          <GitHubLink
+            href="https://github.com/alexstrugacz/cameldew-valley"
+            accent={ACCENT}
+          />
         </motion.div>
 
         {/* ============ STAT CARDS ============ */}

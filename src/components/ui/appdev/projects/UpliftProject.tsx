@@ -8,6 +8,8 @@ import {
   TechTags,
   Screenshot,
   ProjectWrapper,
+  GitHubLink,
+  AppStoreLink,
 } from "../../ProjectComponents";
 import { StatCard } from "@/components/ui/StatCard";
 
@@ -189,6 +191,29 @@ export function UpliftProject() {
               className="h-auto w-full rounded-xl object-cover"
             />
           </GlowFrame>
+
+          {/* ============ PROJECT LINKS ============ */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mt-4 flex flex-wrap items-start gap-3"
+          >
+            <GitHubLink
+              href="https://github.com/cuappdev/uplift-ios-swiftui"
+              accent={ACCENT}
+              repoType="frontend (iOS)"
+            />
+            <GitHubLink
+              href="https://github.com/cuappdev/uplift-backend"
+              accent={ACCENT}
+              repoType="backend"
+            />
+            <AppStoreLink
+              href="https://apps.apple.com/us/app/uplift-cornell-fitness/id1439374374"
+              accent={ACCENT}
+            />
+          </motion.div>
         </motion.div>
 
         {/* ============ TEAM PHOTO ============ */}
